@@ -6,9 +6,15 @@
             "mysql" => Array(
                     'driver' => 'mysql',
                     'host' => 'localhost',
-                    'username' => 'campus',
-                    'database' => '',
-                    'password' => 'campus2023',
+                    //'host' => '172.16.48.230',
+                    'username' => 'root', 
+                    //'username' => 'campus',
+                    //'username' => 'apolo',
+                    'database' => 'sgavapp',
+                    'password' => '123456789',
+                    //'password' => 'campus2023', 
+                    //'password' => '@pol0Adm1n$', 
+                    'charset' => 'utf8mb4',
                     'collation' => 'utf8mb4_unicode_ci',
                     'flags' => [
                         // Turn off persistent connections
