@@ -2,5 +2,11 @@
     "name": "apolm01-033/sistema-campus",
     "description": "Desarrollo de aplicativo web para el manejo de datos de Campuslands.",
     "type": "project",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\" : "./config",
+            "Models\\" : "./models"
+        }
+    }
 }
