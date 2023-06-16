@@ -1,49 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BASE DE DATOS CAMPUS LANDS</title>
-</head>
-<body>
+<!-- HEADER -->
+<?php
+    include_once __DIR__ . '/templates/header.php';
+?>
+<!-- HEADER -->
 
-    <h1>HOLA MUNDO</h1>
+<!-- SIDEBAR -->
+<?php
+    include_once __DIR__ . '/templates/sidebar.php';
+?>
+<!-- SIDEBAR -->
 
-    <p>luis carlos habla mucho</p>
+<!-- NAVBAR -->
+<section id="content">
 
+    <!-- NAVBAR -->
+    <?php
+        include_once __DIR__ . '/templates/navbar.php';
+    ?>
+    <!-- NAVBAR -->
 
+    <!-- MAIN --> 
+    <!-- lo que va a cambiar en las paginas -->
+    <main>
 
+        <h1 class="title text-center">SISTEMA DE REGISTRO DE CAMPUS LANDS</h1>
+        <!--<ul class="breadcrumbs">
+				<li><a href="#">Home</a></li>
+				<li class="divider">/</li>
+				<li><a href="#" class="active">Dashboard</a></li>
+			</ul>-->
 
+        <div class="container d-flex justify-content-evenly mt-5">
+            <div class="card" style="width: 18rem;">
+                <img src="images/campers.png" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <p class="card-text">Pequeña descripción</p>
+                    <a href="#" class="btn btn-primary">CAMPERS</a>
+                </div>
+            </div>
 
+            <div class="card" style="width: 18rem;">
+                <img src="images/man-teacher-3548.png" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <p class="card-text">Pequeña descripción</p>
+                    <a href="#" class="btn btn-primary">TRAINNERS</a>
+                </div>
+            </div>
 
+            <div class="card" style="width: 18rem;">
+                <img src="images/empleados.png" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <p class="card-text">Pequeña descripción</p>
+                    <a href="#" class="btn btn-primary">EMPLEADOS</a>
+                </div>
+            </div>
+        </div>
 
+    </main>
+    <!-- MAIN -->
+</section>
+<!-- NAVBAR -->
 
-
-
-
-
-
-    <h3>Buenas</h3>
-    <ul>
-        <li>Tatis</li>
-        <li>Erik</li>
-        <li>LuisK</li>
-        <li>Yooo</li>
-    </ul>
-
-    <table>
-        <th>
-            <tr>Hola</tr>
-        </th>
-        <td>
-            <tr>MUNDO</tr>
-        </td>
-    </table>
-    
-
-    <p>no se actualiza esto </p>
-
-
-</body>
-</html>
+<!-- FOOTER -->
+<?php
+    include_once __DIR__ . '/templates/footer.php';
+?>
+<!-- FOOTER -->
