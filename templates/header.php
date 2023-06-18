@@ -11,7 +11,8 @@
 	<script src="js/jquery-3.7.0.slim.js"></script>
 	<script src="js/DataTables/datatables.min.js"></script>
 	<script src="js/mainMenu.js" async></script>
-	<!---<script src="app.js" defer type="module"></script>-->
+	<script src="js/mainMenuLocati.js" defer></script>
+	<script src="/app.js" type="module" defer></script>
 	<title>Campus Lands</title>
     
 </head>

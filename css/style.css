@@ -7,6 +7,10 @@
 	box-sizing: border-box;
 }
 
+.logo{
+    width: 50px;
+}
+
 :root {
 	--grey: #F1F0F6;
 	--dark-grey: #8D8D8D;
@@ -37,9 +41,10 @@ li {
 	list-style: none;
 }
 
-
-
-
+/* OCULTAR MENU LOCATION*/
+#contenidoCiudad , #contenidoRegion {
+	display: none;
+}
 
 
 
