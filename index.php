@@ -1,6 +1,16 @@
+<!-- APP  -->
+<?php
+include_once 'app.php';
+?>
+
+
+
+
 <!-- HEADER -->
 <?php
+
     include_once __DIR__ . '/templates/header.php';
+  
 ?>
 <!-- HEADER -->
 

@@ -1,5 +1,6 @@
 <?php 
     namespace App;
+    echo 'hola';
     class Database{
         private $conn;
         protected static $settings = Array(
@@ -10,8 +11,8 @@
                     'username' => 'root', 
                     //'username' => 'campus',
                     //'username' => 'apolo',
-                    'database' => 'sgavapp',
-                    'password' => '123456789',
+                    'database' => 'sistema_registro_campus',
+                    'password' => '123456',
                     //'password' => 'campus2023', 
                     //'password' => '@pol0Adm1n$', 
                     'charset' => 'utf8mb4',
@@ -57,6 +58,7 @@
             $dsn = "{$dbConfig['driver']}:host={$dbConfig['host']};dbname={$dbConfig['database']}";
             try{
                 $this->conn = new \PDO($dsn, $dbConfig['username'], $dbConfig['password'], $dbConfig['flags']);
+                echo 'ok';
             }catch(\PDOException $exception){
                 $error=[[
                     'error' => $exception->getMessage(),

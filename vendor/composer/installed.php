@@ -3,7 +3,7 @@
         'name' => 'apolm01-033/sistema-campus',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '63b074c25c7d5bb3269be4d6088d301a0b5b15cf',
+        'reference' => 'a0cd95814f68f6be11777b2a432fb1e8b66802bb',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'apolm01-033/sistema-campus' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '63b074c25c7d5bb3269be4d6088d301a0b5b15cf',
+            'reference' => 'a0cd95814f68f6be11777b2a432fb1e8b66802bb',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
