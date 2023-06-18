@@ -142,7 +142,7 @@ li {
 	text-align: center;
 }
 #sidebar .side-dropdown {
-	padding-left: 54px;
+	padding-left: 30px;
 	max-height: 0;
 	overflow-y: hidden;
 	transition: all .15s ease;
@@ -577,6 +577,8 @@ main .btn-send {
 main .btn-send:hover {
 	background: var(--dark-blue);
 }
+
+
 /* MAIN */
 /* CONTENT */
 
@@ -585,14 +587,4 @@ main .btn-send:hover {
 
 
 
-@media screen and (max-width: 768px) {
-	#content {
-		position: relative;
-		width: calc(100% - 60px);
-		transition: all .3s ease;
-	}
-	nav .nav-link,
-	nav .divider {
-		display: none;
-	}
-}
+
