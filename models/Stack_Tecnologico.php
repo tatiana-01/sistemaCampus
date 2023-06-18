@@ -18,17 +18,18 @@ class Stack_Tecnologico{
 
         public function postDataStack($data){
             $delimiter = ':';
+            echo var_dump($data);
             $valCols = $delimiter .join(',:',array_keys($data));
             $cols = join(',',array_keys($data));
-            $sql = "INSERT INTO stack_tecnologico($cols) VALUES ($valCols)";
+            $sql = "INSERT INTO stack_tecnologico ($cols) VALUES ($valCols)";
             $stmt = self::$conn->prepare($sql);
-            $stmt->execute();
+            $stmt->execute($data);
            
             
         
         }
 
-        public function selectStackById($id){
+        public function getStackById($id){
             $sql ="SELECT * FROM stack_tecnologico WHERE id_stack_tecnologico = :id_stack_tecnologico";
             $stmt = self::$conn->prepare($sql);
             $stmt->bindParam(":id_stack_tecnologico",$id,\PDO::PARAM_INT);
@@ -37,36 +38,32 @@ class Stack_Tecnologico{
             return $stack;
         }
 
-        public function updateStackById($data){
+        public function getAllStack(){
+
+            $sql = "SELECT * FROM  stack_tecnologico";
+            $stmt = self::$conn->prepare($sql);
+            $stmt->execute();
+            $allStacks = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $allStacks;
+
+        }
+
+        public function updateStackById($data,$id){
             $delimiter = ",:";
-            $cont = 0;
+            $cont = 1;
             $valsColsString = $delimiter . join(",:",array_keys($data));
             $valColsArr = explode(',',$valsColsString);
-            $sql ="UPDATE stack_tecnologico SET nombre_stack = :nombre_stack, descripcion_stack = :descripcion_stack, id_ruta = :id_ruta";
+            $sql ="UPDATE stack_tecnologico SET nombre_stack = :nombre_stack, descripcion_stack = :descripcion_stack , id_ruta = :id_ruta WHERE id_stack_tecnologico =:id_stack_tecnologico";
             $stmt = self::$conn->prepare($sql);
+           
             foreach($data as $key){
-
-                $stmt->bindParam($valsCols[$cont],$data[$key],\PDO::PARAM_STR);
+                echo $key;
+                $stmt->bindValue($valColsArr[$cont],$key,\PDO::PARAM_STR);
                 $cont++;
             }
+            $stmt->bindParam(':id_stack_tecnologico',$id,\PDO::PARAM_INT);
             $stmt->execute();
-
-            if ($stmt->rowCount()>0){
-                $response=[[
-                    'mensaje' => 'El registro fue actualizado correctamente',
-                    'codEstado' => '200',
-                    'totalreg' => $stmt->rowCount()
-                ]];
-            }else{
-                $response=[[
-                    'mensaje' => 'El registro no fue eliminado',
-                    'reject' => 'Registro no encontrado o no existe',
-                    'codEstado' => '204',
-                    'totalreg' => $stmt->rowCount()
-                ]];
-            }
-
-            return $response;
+      
         }
 
 

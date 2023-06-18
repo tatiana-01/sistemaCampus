@@ -4,7 +4,7 @@ let formPais = document.querySelector('#formPais');
 //definimos el encabezado para el envio de los datos
 let myHeaderPais = new Headers({"Content-Type" : "application/json; charset:utf8"});
 
-//creamos el evento al boton para enviar los datos 
+/* //creamos el evento al boton para enviar los datos 
 document.querySelector('#btnPais').addEventListener('click', async (e) => {
 
     e.preventDefault();
@@ -16,7 +16,7 @@ document.querySelector('#btnPais').addEventListener('click', async (e) => {
         });
     alert("El dato se envio correctamente");
 });
-
+ */
 //funcion para el metodo POST (enviar datos)
 const postData1 = async (data) => {
     let config = {

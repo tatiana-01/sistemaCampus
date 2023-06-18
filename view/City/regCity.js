@@ -4,7 +4,7 @@ let formCiudad = document.querySelector('#formCiudad');
 //definimos el encabezado para el envio de los datos
 let myHeaderCiudad = new Headers({"Content-Type" : "application/json; charset:utf8"});
 
-//creamos el evento al boton para enviar los datos 
+/* //creamos el evento al boton para enviar los datos 
 document.querySelector('#btnCiudad').addEventListener('click', async (e) => {
 
     e.preventDefault();
@@ -15,7 +15,7 @@ document.querySelector('#btnCiudad').addEventListener('click', async (e) => {
             //me devuelve la respuesta del metodo
         });
     alert("El dato se envio correctamente");
-});
+}); */
 
 //funcion para el metodo POST (enviar datos)
 const postData3 = async (data) => {

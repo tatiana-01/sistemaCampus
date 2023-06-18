@@ -1,10 +1,10 @@
-export { postData2 };
-// obtnemos el formulario
-let formRegion = document.querySelector('#formRegion');
+ export { postData2 };
+// obtnemos el formulario/* 
+ let formRegion = document.querySelector('#formRegion');
 //definimos el encabezado para el envio de los datos
-let myHeaderRegion = new Headers({"Content-Type" : "application/json; charset:utf8"});
+/* let myHeaderRegion = new Headers({"Content-Type" : "application/json; charset:utf8"});
 
-//creamos el evento al boton para enviar los datos 
+ //creamos el evento al boton para enviar los datos 
 document.querySelector('#btnRegion').addEventListener('click', async (e) => {
 
     e.preventDefault();
@@ -16,7 +16,7 @@ document.querySelector('#btnRegion').addEventListener('click', async (e) => {
         });
     alert("El dato se envio correctamente");
 });
-
+ */
 //funcion para el metodo POST (enviar datos)
 const postData2 = async (data) => {
     let config = {
@@ -27,4 +27,4 @@ const postData2 = async (data) => {
     //enviamos los datos 
     let response = await (await fetch("controllers/Region/insert_data.php", config)).text();
     return response;
-}
+}   
