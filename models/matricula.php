@@ -30,6 +30,18 @@
             $personas= $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $personas;
         }
+
+        public function loadDataByIdCamper($id){
+            
+            $sql = "SELECT * FROM matricula_camper_rutas WHERE id_camper=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $salon= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $salon;
+        }
+
         public static function setConn($connBd){
             self::$conn = $connBd;
         }

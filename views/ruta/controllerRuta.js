@@ -15,7 +15,7 @@ myformRuta.addEventListener("submit", async (e) => {
         headers: myHeadersRuta,
         body: JSON.stringify(dataRuta)
     };
-    let resRuta = await (await fetch("../scripts/ruta/insertRuta.php", configRuta)).text(); 
+    let resRuta = await (await fetch("../../controllers/ruta/insertRuta.php", configRuta)).text(); 
 })
 
 
@@ -56,7 +56,7 @@ $(document).ready(function() {
 function modalEliminar (idpk, info) {
     document.querySelector('#infoEliminar').innerHTML = /*html*/'Desea eliminar la ruta: <b>' + info + '</b> con ID: ' + idpk;
     let btnEliminarRuta=document.querySelector('#borrarDefRuta');
-    btnEliminarRuta.setAttribute("href",`../scripts/ruta/deleteRuta.php?id=${idpk}`);
+    btnEliminarRuta.setAttribute("href",`../../controllers/ruta/deleteRuta.php?id=${idpk}`);
 }
 
 let myformEditRuta = document.querySelector("#formRutaEdit"); //seleccionamos el formulario
@@ -71,7 +71,7 @@ myformEditRuta.addEventListener("submit", async (e) => {
         body: JSON.stringify(dataEditRuta)
     };
     console.log(dataEditRuta);
-    let res = await (await fetch("../scripts/ruta/editRuta.php", config)).text();
+    let res = await (await fetch("../../controllers/ruta/editRuta.php", config)).text();
     console.log(res); 
    
 })

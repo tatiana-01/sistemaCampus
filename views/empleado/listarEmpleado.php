@@ -1,5 +1,5 @@
 <?php 
-    include_once('../app.php');
+    include_once('../../app.php');
     use Models\Personas;
     use Models\Empleado;
     $objPersonas = new Personas();
@@ -10,13 +10,13 @@
 ini_set("display_errors",1);
 ini_set("display_startup_errors",1);
 error_reporting(E_ALL);
-    include_once __DIR__ . '/../templates/header.php';
+    include_once __DIR__ . '/../../templates/header.php';
 ?>
 <!-- HEADER -->
 
 <!-- SIDEBAR -->
 <?php
-    include_once __DIR__ . '/../templates/sidebar.php';
+    include_once __DIR__ . '/../../templates/sidebar.php';
 ?>
 <!-- SIDEBAR -->
 
@@ -25,7 +25,7 @@ error_reporting(E_ALL);
 
     <!-- NAVBAR -->
     <?php
-        include_once __DIR__ . '/../templates/navbar.php';
+        include_once __DIR__ . '/../../templates/navbar.php';
     ?>
     <!-- NAVBAR -->
 
@@ -44,10 +44,10 @@ error_reporting(E_ALL);
             <a class="nav-link" href="listarEmpleado.php">Listado Empleados</a>
         </li>
     </ul>
+    <hr>
     <div class="content" style="width: 90%">
          <!-- TABLA CAMPERS -->
-         <h3>Listado Rutas</h3>
-                <hr>
+         <h3>Listado Empleados</h3>
                 <table class="table table-bordered display dataTable" id="misEmpleados">
                     <thead class="table-dark mt-3">
                         <tr>
@@ -65,15 +65,15 @@ error_reporting(E_ALL);
                     <?php 
                     $empleados=$objEmpleado->loadAllData();
                     foreach ($empleados as $empleado): ?>
-                    <?php $persona=$objPersonas->loadDataByIdCamper($empleado['id_persona']); ?>
+                    <?php $persona=$objPersonas->loadDataById($empleado['id_persona']); ?>
                         <tr  class="bg-light" >      
                             <td><?php echo "{$empleado['id_empleado']}" ?></td>
-                            <td><?php echo "<img src='../images/{$persona[0]['foto_persona']}' alt='' srcset='' style='width: 10rem;'>" ?></td>
+                            <td><?php echo "<img src='../../images/{$persona[0]['foto_persona']}' alt='' srcset='' style='width: 10rem;'>" ?></td>
                             <td><?php echo "{$persona[0]['tipo_id']}" ?></td>
                             <td><?php echo "{$persona[0]['id_persona']}" ?></td>
                             <td><?php echo "{$persona[0]['persona_nombre']}" ?></td>
                             <td><?php echo "{$persona[0]['persona_apellido']}" ?></td>
-                            <td><a class='btn btn-info' id='masInfoCamper' href='masInfoEmpleado.php'>Ver mas</a> </td>
+                            <td><a class='btn btn-info' id='masInfoCamper' <?php echo "href='masInfoEmpleado.php?idPersona={$persona[0]['id_persona']}'" ?>>Ver mas</a> </td>
                         </tr>
                     <?php endforeach?>
                     </tbody>
@@ -84,10 +84,11 @@ error_reporting(E_ALL);
     <!-- MAIN -->
 </section>
 <!-- NAVBAR -->
-
-<script src="/../controllers/controllerListarEmpleado.js"></script>
+<link rel="stylesheet" href="../../js/DataTables/datatables.min.css">
+<script src="../../js/DataTables/datatables.min.js"></script>
+<script src="controllerListarEmpleado.js"></script>
 <!-- FOOTER -->
 <?php
-    include_once __DIR__ . '/../templates/footer.php';
+    include_once __DIR__ . '/../../templates/footer.php';
 ?>
 <!-- FOOTER -->

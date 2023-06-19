@@ -1,15 +1,24 @@
+<?php 
+    include_once('../../app.php');
+    use Models\Empleado;
+    use Models\Ruta;
+    use Models\Campers;
+    $objEmpleados = new Empleado();
+    $objCampers = new Campers();
+    $objRutas = new Ruta();
+?>
 <!-- HEADER -->
 <?php
 ini_set("display_errors",1);
 ini_set("display_startup_errors",1);
 error_reporting(E_ALL);
-    include_once __DIR__ . '/../templates/header.php';
+    include_once __DIR__ . '/../../templates/header.php';
 ?>
 <!-- HEADER -->
 
 <!-- SIDEBAR -->
 <?php
-    include_once __DIR__ . '/../templates/sidebar.php';
+    include_once __DIR__ . '/../../templates/sidebar.php';
 ?>
 <!-- SIDEBAR -->
 
@@ -18,7 +27,7 @@ error_reporting(E_ALL);
 
     <!-- NAVBAR -->
     <?php
-        include_once __DIR__ . '/../templates/navbar.php';
+        include_once __DIR__ . '/../../templates/navbar.php';
     ?>
     <!-- NAVBAR -->
 
@@ -28,20 +37,21 @@ error_reporting(E_ALL);
 
     <ul class="nav nav-underline navCamper">
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="camper.php">Registro Campers</a>
+            <a class="nav-link" aria-current="page" href="empleado.php">Registro Empleado</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="acudiente.php">Acudiente Campers</a>
+            <a class="nav-link" href="contactoEmpleado.php">Contacto Empleado</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="listarCamper.php">Listado Campers</a>
+            <a class="nav-link" href="listarEmpleado.php">Listado Empleados</a>
         </li>
     </ul>
+    <hr>
     <div class="content container mt-3" style="width: 78%">
          <!-- FORMULARIO -->
-            <h3 class="mb-3" >Registro de Campers</h3>
+            <h3 class="mb-3" >Registro de Empleados</h3>
             <hr>
-            <form id="camperPersonaForm" action="">
+            <form id="empleadoPersonaForm" action="">
                 <div class="row  p-1">
                     <div class="mb-2 col-sm-12 col-md-6">
                         <select class="form-select" aria-label="Default select example" name="tipo_id">
@@ -82,17 +92,28 @@ error_reporting(E_ALL);
                     <h5 class="mt-2">Informacion de Contacto</h5>
                     <hr>
                     <div class=" p-1">
-                        <div class="row ">
-                            <div class=" mb-2 col-sm-6 col-md-6">
-                                <select class="form-select" aria-label="Default select example">
+                    <div class="row ">
+                            <div class=" mb-2 col-sm-12 col-md-4">
+                                <select class="form-select" aria-label="Default select example" id='selectPais'>
+                                    <option >Selecciones un pais</option>
+                                    <?php 
+                                        $paises=$objCampers->loadAllDataPaises();
+                                        foreach ($paises as $pais) {
+                                            echo "<option value='$pais[id_pais]'>".$pais['nombre_pais'] ."</option>";  
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class=" mb-2 col-sm-12 col-md-4">
+                                <select class="form-select" aria-label="Default select example" id='selectDpto'>
                                     <option selected>Seleccione un departamento</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
                             </div>
-                            <div class=" mb-2 col-sm-6 col-md-6">
-                                <select class="form-select" aria-label="Default select example" name="id_ciudad">
+                            <div class=" mb-2 col-sm-12 col-md-4">
+                                <select class="form-select" aria-label="Default select example" id='selectCiudad' name="id_ciudad">
                                     <option selected>Seleccione una ciudad</option>
                                     <option value="1">Bucaramanga</option>
                                     <option value="2">Two</option>
@@ -119,55 +140,43 @@ error_reporting(E_ALL);
                     </div>
 
                 </div>
-                <div class="mb-4">
+                <div>
                     <h5 class="mt-2">Informacion Medica</h5>
                     <hr>
                     <div class="row  p-1">
-                        <div class="mb-2 col-sm-6 col-md-6">
+                        <div class="mb-2 col-12">
+                            <label for="id_eps" class="form-label">EPS</label>
                             <select class="form-select" aria-label="Default select example" name="id_eps">
                                 <option selected>Seleccione una EPS</option>
-                                <option value="1">SURA</option>
-                                <option value="2">Sanitas</option>
+                                <?php 
+                                $eps=$objCampers->loadAllDataEps();
+                                foreach ($eps as $value) {
+                                    echo "<option value='$value[id_eps]'>".$value['eps_nombre'] ."</option>";  
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="d-grid mx-auto mt-1">
-                    <button id='botonFormPersonCamper' class="btn btn-success mx-auto" type="submit">Guardar</button>
+                    <button id="botonEmpleadoPersonaForm" class="btn btn-success mx-auto" type="submit">Guardar</button>
                 </div>
             </form>
-            
-            <form id="camperForm" class="mb-2 d-none">
-                <h5 class="mt-2">Informacion Academica</h5>
-                <div class="row  p-1">
-                    <label for="nombres" class="form-label">Nivel de conocimiento</label>
-                    <select class="form-select" aria-label="Default select example" name="id_nivel_camper">
-                        <option selected>Seleccione un nivel</option>
-                        <option value="1">Básico</option>
-                        <option value="2">Intermedio</option>
-                        <option value="3">Avanzado</option>
-                    </select>
-                </div>
-                <div class="d-grid mx-auto mt-1 ">
-                    <button id='botonFormCamper' class="btn btn-success mx-auto" type="submit">Guardar</button>
-                </div>
-            </form>
-
-            <form id="matriculaForm" class="mb-2 d-none">
-                <div class="mb-2">
-                    <label for="nombres" class="form-label">Ruta de entrenamiento</label>
-                    <select class="form-select" aria-label="Default select example" name="id_ruta">
-                        <option selected>Seleccione una ruta</option>
-                        <option value="1">Front</option>
-                        <option value="2">Back</option>
-                        <option value="3">Full</option>
-                    </select>  
-                </div>
-                <div class="d-grid mx-auto mt-1">
-                    <button id='botonFormMatricula' class="btn btn-success mx-auto" type="submit">Guardar</button>
+            <form action="" id="empleadoForm" class="mb-2 col-12 d-none">
+                <label for="id_arl" class="form-label">ARL</label>
+                <select class="form-select" aria-label="Default select example" name="id_arl">
+                    <option selected>Seleccione una ARL</option>
+                    <?php 
+                    $arls=$objEmpleados->loadAllDataArl();
+                    foreach ($arls as $arl) {
+                        echo "<option value='$arl[id_arl]'>".$arl['arl_nombre'] ."</option>";  
+                    }
+                    ?>
+                </select>
+                <div class="d-grid mx-auto mt-3">
+                 <button class="btn btn-success mx-auto" type="submit">Guardar</button>
                 </div>
             </form>
-            
     </div>
 
        
@@ -176,9 +185,10 @@ error_reporting(E_ALL);
 </section>
 <!-- NAVBAR -->
 
-<script src="/../controllers/controllerCamper.js"></script>
+<script src="controllerEmpleado.js"></script>
+<script src="../camper/selects.js"></script>
 <!-- FOOTER -->
 <?php
-    include_once __DIR__ . '/../templates/footer.php';
+    include_once __DIR__ . '/../../templates/footer.php';
 ?>
 <!-- FOOTER -->

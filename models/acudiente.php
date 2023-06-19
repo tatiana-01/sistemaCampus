@@ -34,14 +34,14 @@
             $campers= $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $campers;
         }
-        public function loadDataByIdPersona($id){
-            
-            $sql = "SELECT id_camper FROM campers WHERE id_persona=$id ";
+        public function loadDataById($id){
+            $sql = "SELECT * FROM acudiente WHERE id_acudiente=:id ";
             $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
             //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
             $stmt->execute();
-            $camper= $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            return $camper;
+            $acudiente= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $acudiente;
         }
 
         public static function setConn($connBd){

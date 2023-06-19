@@ -1,5 +1,5 @@
 <?php 
-    include_once('../app.php');
+    include_once('../../app.php');
     use Models\Campers;
     use Models\Personas;
     $objCampers = new Campers();
@@ -7,13 +7,13 @@
 ?>
 <!-- HEADER -->
 <?php
-    include_once __DIR__ . '/../templates/header.php';
+    include_once __DIR__ . '/../../templates/header.php';
 ?>
 <!-- HEADER -->
 
 <!-- SIDEBAR -->
 <?php
-    include_once __DIR__ . '/../templates/sidebar.php';
+    include_once __DIR__ . '/../../templates/sidebar.php';
 ?>
 <!-- SIDEBAR -->
 
@@ -22,7 +22,7 @@
 
     <!-- NAVBAR -->
     <?php
-        include_once __DIR__ . '/../templates/navbar.php';
+        include_once __DIR__ . '/../../templates/navbar.php';
     ?>
     <!-- NAVBAR -->
 
@@ -31,15 +31,16 @@
     <main>
     <ul class="nav nav-underline navCamper">
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="camper.php">Registro Campers</a>
+            <a class="nav-link" aria-current="page" href="../camper/camper.php">Registro Campers</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="acudiente.php">Acudiente Campers</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="listarCamper.php">Listado Campers</a>
+            <a class="nav-link" href="../camper/listarCamper.php">Listado Campers</a>
         </li>
     </ul>
+    <hr>
     <div class="content container mt-3" style="width: 78%">
         <h3 class="mb-3" >Registro de Acudiente Camper</h3>
         <hr>
@@ -49,8 +50,7 @@
             <?php 
             $campers=$objCampers->loadAllData();
             foreach ($campers as $camper) {
-                $personas=$objPersonas->loadDataByIdCamper($camper['id_persona']);
-                echo var_dump($personas);
+                $personas=$objPersonas->loadDataById($camper['id_persona']);
                 echo "<option value='$camper[id_camper]'>".$personas[0]['persona_nombre'].' '. $personas[0]['persona_apellido'] ."</option>";
             }
             ?>
@@ -67,7 +67,7 @@
                     </select>
                 </div>
                 <div class="mb-2 col-sm-12 col-md-6 ">
-                    <input type="text" placeholder="Numero de Documento" name="id_acudiente" class="form-control">
+                    <input type="text" placeholder="Numero de Documento Acudiente" name="id_acudiente" class="form-control">
                 </div>
             </div>
             <div class="row  p-1">
@@ -95,9 +95,9 @@
     <!-- MAIN -->
 </section>
 <!-- NAVBAR -->
-<script src="../controllers/controllerAcudiente.js"></script>
+<script src="controllerAcudiente.js"></script>
 <!-- FOOTER -->
 <?php
-    include_once __DIR__ . '/../templates/footer.php';
+    include_once __DIR__ . '/../../templates/footer.php';
 ?>
 <!-- FOOTER -->

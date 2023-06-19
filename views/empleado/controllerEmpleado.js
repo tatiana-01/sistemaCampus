@@ -21,7 +21,7 @@ myformPersonaEmpleado.addEventListener("submit", async (e) => {
     btnFormPersonaEmpleado.classList.add("d-none");
     myformEmpleado.classList.remove("d-none");
     
-   let resPersonaEmpleado = await (await fetch("../scripts/personas/insertPersonas.php", configPersonaEmpleado)).text(); 
+   let resPersonaEmpleado = await (await fetch("../../controllers/personas/insertPersonas.php", configPersonaEmpleado)).text(); 
 })
 
 
@@ -34,6 +34,6 @@ myformEmpleado.addEventListener("submit", async (e) => {
         headers: myHeadersEmpleado,
         body: JSON.stringify(dataEmpleado)
     };
-    let resCamper = await (await fetch("../scripts/empleado/insertEmpleado.php", configEmpleado)).text(); 
+    let resCamper = await (await fetch("../../controllers/empleado/insertEmpleado.php", configEmpleado)).text(); 
 })
 

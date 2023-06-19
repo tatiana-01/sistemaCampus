@@ -8,6 +8,7 @@
     use Models\CamperAcudiente;
     use Models\Empleado;
     use Models\Ruta;
+    use Models\ContactoEmpleado;
     $db = new Database();
     $conn = $db->getConnection('mysql');
     Personas::setConn($conn);
@@ -17,4 +18,5 @@
     CamperAcudiente::setConn($conn);
     Empleado::setConn($conn);
     Ruta::setConn($conn);
+    ContactoEmpleado::setConn($conn);
 ?>

@@ -30,6 +30,18 @@
             $rutas= $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $rutas;
         }
+
+        public function loadDataById($id){
+            
+            $sql = "SELECT * FROM ruta_entrenamiento WHERE id_ruta=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $ruta= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $ruta;
+        }
+
         public function deleteData($id){
             $sql = "DELETE FROM ruta_entrenamiento where id_ruta = :id";
             $stmt= self::$conn->prepare($sql);

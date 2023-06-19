@@ -24,7 +24,7 @@ myformPersonaCamper.addEventListener("submit", async (e) => {
     myformCamper.classList.remove("d-none");
     
     e.stopImmediatePropagation();
-    let resPersonaCamper = await (await fetch("../scripts/personas/insertPersonas.php", configPersonaCamper)).text(); 
+    let resPersonaCamper = await (await fetch("../../controllers/personas/insertPersonas.php", configPersonaCamper)).text(); 
 })
 
 
@@ -40,7 +40,7 @@ myformCamper.addEventListener("submit", async (e) => {
     btnFormCamper.classList.add("d-none");
     myformMatriculaCamper.classList.remove("d-none");
     e.preventDefault();
-    let resCamper = await (await fetch("../scripts/campers/insertCampers.php", configCamper)).text(); 
+    let resCamper = await (await fetch("../../controllers/campers/insertCampers.php", configCamper)).text(); 
 })
 
 myformMatriculaCamper.addEventListener("submit", async (e) => { 
@@ -53,7 +53,7 @@ myformMatriculaCamper.addEventListener("submit", async (e) => {
         body: JSON.stringify(dataPersona.id_persona)
     };
     e.preventDefault();
-    let infoCamper=await(await fetch("../scripts/campers/idCamper.php", configIdCamper)).text();
+    let infoCamper=await(await fetch("../../controllers/campers/idCamper.php", configIdCamper)).text();
     let jsonInfoCamper=JSON.parse(infoCamper)
     dataMatriculaCamper.id_camper=jsonInfoCamper[0].id_camper;
     console.log(dataMatriculaCamper);
@@ -62,6 +62,6 @@ myformMatriculaCamper.addEventListener("submit", async (e) => {
         headers: myHeadersCamper,
         body: JSON.stringify(dataMatriculaCamper)
     }; 
-    let resMatriculaCamper = await (await fetch("../scripts/matricula_camper_rutas/insertMatricula.php", configMatriculaCamper)).text();
+    let resMatriculaCamper = await (await fetch("../../controllers/matricula_camper_rutas/insertMatricula.php", configMatriculaCamper)).text();
     location.reload();
 })

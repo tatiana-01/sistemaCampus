@@ -1,18 +1,18 @@
 <?php 
-    include_once('../app.php');
+    include_once('../../app.php');
     use Models\Ruta;
     $objRuta = new Ruta();
     $rutas=$objRuta->loadAllData();
 ?>
 <!-- HEADER -->
 <?php
-    include_once __DIR__ . '/../templates/header.php';
+    include_once __DIR__ . '/../../templates/header.php';
 ?>
 <!-- HEADER -->
 
 <!-- SIDEBAR -->
 <?php
-    include_once __DIR__ . '/../templates/sidebar.php';
+    include_once __DIR__ . '/../../templates/sidebar.php';
 ?>
 <!-- SIDEBAR -->
 
@@ -21,7 +21,7 @@
 
     <!-- NAVBAR -->
     <?php
-        include_once __DIR__ . '/../templates/navbar.php';
+        include_once __DIR__ . '/../../templates/navbar.php';
     ?>
     <!-- NAVBAR -->
 
@@ -115,11 +115,11 @@
 </section>
 <!-- NAVBAR -->
 
-<link rel="stylesheet" href="../js/DataTables/datatables.min.css">
-<script src="../js/DataTables/datatables.min.js"></script>
-<script src="/../controllers/controllerRuta.js"></script>
+<link rel="stylesheet" href="../js/../DataTables/datatables.min.css">
+<script src="../../js/DataTables/datatables.min.js"></script>
+<script src="controllerRuta.js"></script>
 <!-- FOOTER -->
 <?php
-    include_once __DIR__ . '/../templates/footer.php';
+    include_once __DIR__ . '/../../templates/footer.php';
 ?>
 <!-- FOOTER -->

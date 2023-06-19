@@ -13,13 +13,13 @@ myformAcudiente.addEventListener("submit", async (e) => {
         headers: myHeadersAcudiente,
         body: JSON.stringify(dataAcudiente)
     };
-    let resAcudiente = await (await fetch("../scripts/acudiente/insertAcudiente.php", configAcudiente)).text();
+    let resAcudiente = await (await fetch("../../controllers/acudiente/insertAcudiente.php", configAcudiente)).text();
     console.log(resAcudiente);
     let configCamperAcudiente = { 
         method: "POST",
         headers: myHeadersAcudiente,
         body: JSON.stringify(dataCamperAcudiente)
     };
-    let resCamperAcudiente = await (await fetch("../scripts/camper_acudiente/insertCamperAcudiente.php", configCamperAcudiente)).text();
+    let resCamperAcudiente = await (await fetch("../../controllers/camper_acudiente/insertCamperAcudiente.php", configCamperAcudiente)).text();
     console.log(resAcudiente);
 })

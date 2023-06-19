@@ -45,7 +45,7 @@
             $personas= $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $personas;
         }
-        public function loadDataByIdCamper($id){
+        public function loadDataById($id){
             $sql = "SELECT * FROM personas WHERE id_persona=:id ";
             $stmt= self::$conn->prepare($sql);
             $stmt->bindParam(':id', $id);

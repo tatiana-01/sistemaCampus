@@ -30,15 +30,33 @@
             $campers= $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $campers;
         }
-        public function loadDataByIdPersona($id){
-            
-            $sql = "SELECT * FROM campers WHERE id_persona=$id ";
+        public function loadDataByIdPersona($id){            
+            $sql = "SELECT * FROM empleado WHERE id_persona=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $empleado= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $empleado;
+        }
+
+        public function loadAllDataArl(){
+            $sql = "SELECT * FROM arls";
             $stmt= self::$conn->prepare($sql);
             //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
             $stmt->execute();
-            $camper= $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            $json_camper=json_encode($camper);
-            echo $json_camper;
+            $arls= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $arls;
+        }
+
+        public function loadDataArlById($id){            
+            $sql = "SELECT * FROM arls WHERE id_arl=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $arl= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $arl;
         }
 
         public static function setConn($connBd){

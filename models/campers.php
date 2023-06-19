@@ -38,8 +38,102 @@
             //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
             $stmt->execute();
             $camper= $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            $json_camper=json_encode($camper);
-            echo $json_camper;
+            return $camper;
+        }
+
+        public function loadDataByIdSalon($id){
+            
+            $sql = "SELECT * FROM salones WHERE id_salon=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $salon= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $salon;
+        }
+
+        public function loadAllDataEps(){
+            $sql = "SELECT * FROM eps";
+            $stmt= self::$conn->prepare($sql);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $eps= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $eps;
+        }
+
+        public function loadDataByIdEps($id){
+            
+            $sql = "SELECT * FROM eps WHERE id_eps=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $eps= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $eps;
+        }
+
+        public function loadAllDataNivel(){
+            $sql = "SELECT * FROM nivel_campers";
+            $stmt= self::$conn->prepare($sql);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $nivel= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $nivel;
+        }
+
+        public function loadAllDataPaises(){
+            $sql = "SELECT * FROM paises";
+            $stmt= self::$conn->prepare($sql);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $nivel= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $nivel;
+        }
+
+        public function loadDataByIdRegiones($id){
+            
+            $sql = "SELECT * FROM regiones WHERE id_pais=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $regiones= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $json_regiones=json_encode($regiones);
+            echo $json_regiones;
+        }
+
+        public function loadDataByIdCiudades($id){
+            
+            $sql = "SELECT * FROM ciudad WHERE id_region=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $ciudades= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $json_ciudades=json_encode($ciudades);
+            echo $json_ciudades;
+        }
+
+        public function loadDataByIdCiudad($id){
+            
+            $sql = "SELECT * FROM ciudad WHERE id_ciudad=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $ciudad= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $ciudad;
+        }
+
+        public function loadDataByIdNivel($id){
+            
+            $sql = "SELECT * FROM nivel_campers WHERE id_nivel_camper=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $nivel= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $nivel;
         }
 
         public static function setConn($connBd){
