@@ -109,8 +109,8 @@
                             <p>'; echo $contacto['telefono_contacto_empleado']; echo '</p>
                         </div>
                         <div class="d-flex mx-2 mt-1 mb-3">
-                            <button class="btn btn-warning mx-auto" type="submit">Editar Acudiente</button>
-                            <button class="btn btn-danger mx-auto" type="submit">Eliminar Acudiente</button>
+                            <button class="btn btn-warning mx-auto" type="submit">Editar Contacto</button>
+                            <button class="btn btn-danger mx-auto" type="submit">Eliminar Contacto</button>
                         </div>
                     </div>
                     ';

@@ -56,12 +56,11 @@ myformMatriculaCamper.addEventListener("submit", async (e) => {
     let infoCamper=await(await fetch("../../controllers/campers/idCamper.php", configIdCamper)).text();
     let jsonInfoCamper=JSON.parse(infoCamper)
     dataMatriculaCamper.id_camper=jsonInfoCamper[0].id_camper;
-    console.log(dataMatriculaCamper);
     let configMatriculaCamper = { 
         method: "POST",
         headers: myHeadersCamper,
         body: JSON.stringify(dataMatriculaCamper)
     }; 
     let resMatriculaCamper = await (await fetch("../../controllers/matricula_camper_rutas/insertMatricula.php", configMatriculaCamper)).text();
-    location.reload();
+   location.reload();
 })

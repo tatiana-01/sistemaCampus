@@ -66,6 +66,7 @@
                     $salon=$objCampers->loadDataByIdSalon($nivel[0]['id_salon']);
                     $matricula=$objMatriculas->loadDataByIdCamper($camper[0]['id_camper']);
                     $ruta=$objRutas->loadDataById($matricula[0]['id_ruta']);
+                    echo var_dump($matricula);
                     $camperAcudientes=$objCamperAcudiente->loadDataByIdCamper($camper[0]['id_camper']);
                 ?>
                 <div class="card bg-secondary-subtle" id="infoPersonas">

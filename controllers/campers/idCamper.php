@@ -4,5 +4,7 @@
     $miCamper = new Campers();
     header("Content-Type: application/json"); 
     $_DATA = json_decode(file_get_contents("php://input"),true);
-    $miCamper->loadDataByIdPersona($_DATA); 
+    $info=$miCamper->loadDataByIdPersona($_DATA); 
+    $infoJson=json_encode($info);
+    echo $infoJson;
 ?>
