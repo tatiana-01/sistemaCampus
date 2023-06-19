@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="js/DataTables/datatables.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/bootstrap/bootstrap.min.js" defer></script>
+	<script src="/js/bootstrap/bootstrap.bundle.min.js" defer></script>
 	<script src="js/jquery-3.7.0.slim.js"></script>
 	<script src="js/DataTables/datatables.min.js"></script>
 	<script src="js/mainMenu.js" async></script>

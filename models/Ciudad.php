@@ -48,6 +48,16 @@
             return $miSgav;
         }
 
+        //funcion para traer datos de la base de datos poa id
+        public function loadByIdData($id)
+         {
+            $sql = "SELECT id_ciudad, ciudad_nombre, id_region FROM regiones WHERE id_region = $id";
+            $stmt = self::$conn->prepare($sql);
+            $stmt->execute();
+            $miSgav = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $miSgav;
+        }
+
         //funcion para borrar datos de la base de datos
         public function deleteData($id)
         {

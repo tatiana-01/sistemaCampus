@@ -1,13 +1,13 @@
 <?php 
     require_once 'app.php';
     use Models\Pais;
-    use Models\Region;
+    //use Models\Region;
 
     $objPais = new Pais();
     $datosPais = $objPais -> loadAllData();
 
-    $objRegion = new Region();
-    $datosRegion = $objRegion -> loadAllData();
+    //$objRegion = new Region();
+    //$datosRegion = $objRegion -> loadAllData();
 ?>
 
 <!--Form de cities-->
@@ -36,10 +36,7 @@
 
                                 <label for="id_region" class="form-label">Region:</label>
                                 <select class="form-select" name="id_region" id="id_region">
-                                    <option selected>Seleccione una region:</option>
-                                    <?php foreach ($datosRegion as $itemRegion) { ?>
-                                        <option value="<?php echo $itemRegion['id_region']; ?>"><?php echo $itemRegion['nombre_region']; ?></option>
-                                    <?php } ?>
+                                    <option selected>Seleccione una region</option>
                                 </select>
 
                             </div>
@@ -54,6 +51,7 @@
                 </div>
                 <div class="container text-center bg-light p-1">
                     <button type="submit" class="btn btn-success" id="btnCiudad">GUARDAR</button>
+                    <button type="reset" class="btn btn-primary">LIMPIAR</button>
                 </div>
             </form>
         </div>

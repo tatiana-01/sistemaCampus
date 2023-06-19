@@ -42,7 +42,7 @@ li {
 }
 
 /* OCULTAR MENU LOCATION*/
-#contenidoCiudad , #contenidoRegion {
+#contenidoCiudad , #contenidoRegion, #listarRegistros{
 	display: none;
 }
 

@@ -30,6 +30,15 @@
                     <a class="nav-link menu" href="#" data-veryocultar='["#contenidoPais", ["#contenidoRegion", "#contenidoCiudad"]]'> Registro Pais</a>
                     <a class="nav-link menu" href="#" data-veryocultar='["#contenidoRegion", ["#contenidoPais", "#contenidoCiudad"]]'>Registro Region</a>
                     <a class="nav-link menu" href="#" data-veryocultar='["#contenidoCiudad", ["#contenidoPais", "#contenidoRegion"]]'>Registro Ciudad</a>
+                    <!--<a class="nav-link listarTodo" href="#">Listar Todo</a>-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle listarTodo" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Listar Todo</a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Paises</a></li>
+                            <li><a class="dropdown-item" href="#">Regiones</a></li>
+                            <li><a class="dropdown-item" href="#">Ciudades</a></li>
+                        </ul>
+                    </li>
                 </div>
             </div>
         </div>
@@ -39,25 +48,72 @@
     <!-- MAIN -->
     <!-- lo que va a cambiar en las paginas -->
     <main>
-        <h1 class="title text-center">SISTEMA DE REGISTRO DE LOCALIZACIÓN</h1>
+        <section id="registro">
+            <h1 class="title text-center">SISTEMA DE REGISTRO DE LOCALIZACIÓN</h1>
+            
+            <section id="contenidoPais">
+                <?php 
+                    include_once __DIR__ . '/view/Country/formCountry.php';
+                ?>
+            </section>
+
+            <section id="contenidoRegion">
+                <?php 
+                    include_once __DIR__ . '/view/Region/formRegion.php';
+                ?>
+            </section>
+
+            <section id="contenidoCiudad">
+                <?php 
+                    include_once __DIR__ . '/view/City/formCity.php';
+                ?>
+            </section>
+        </section>
+    
+        <section id="listarRegistros">
+            <h1 class="title text-center">LISTADO DE PAISES, REGIONES Y CIUDADES</h1>
+
+            <section class="container" id="listPais">
+                <div class="card">
+                    <h5 class="card-header text-center">Paises</h5>
+                    <div class="card-body">
+                
+                        <?php 
+                            include_once __DIR__ . '/view/Country/listCountry.php';
+                        ?>
+                    
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <section class="container" id="listRegion">
+                <div class="card">
+                    <h5 class="card-header text-center">Regiones</h5>
+                    <div class="card-body">
+                
+                        <?php 
+                            include_once __DIR__ . '/view/Region/listRegion.php';
+                        ?>
+                    
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <section class="container" id="listCiudad">
+                <div class="card">
+                    <h5 class="card-header text-center">Ciudades</h5>
+                    <div class="card-body">
+                
+                        <?php 
+                            include_once __DIR__ . '/view/City/listCity.php';
+                        ?>
+                    
+                    </div>
+                </div>
+            </section>
+
+        </section>
         
-        <section id="contenidoPais">
-            <?php 
-                include_once __DIR__ . '/view/Country/formCountry.php';
-            ?>
-        </section>
-
-        <section id="contenidoRegion">
-            <?php 
-                include_once __DIR__ . '/view/Region/formRegion.php';
-            ?>
-        </section>
-
-        <section id="contenidoCiudad">
-            <?php 
-                include_once __DIR__ . '/view/City/formCity.php';
-            ?>
-        </section>
 
     </main>
     <!-- MAIN -->

@@ -40,6 +40,7 @@
                 </div>
                 <div class="container text-center bg-light p-1">
                     <button type="submit" class="btn btn-success" id="btnRegion">GUARDAR</button>
+                    <button type="reset" class="btn btn-primary">LIMPIAR</button>
                 </div>
             </form>
         </div>
