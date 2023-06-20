@@ -1,6 +1,6 @@
 <?php 
     namespace App;
-    echo 'hola';
+
     class Database{
         private $conn;
         protected static $settings = Array(

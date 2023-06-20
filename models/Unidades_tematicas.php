@@ -81,6 +81,10 @@ class Unidades_Tematicas{
 
     }
 
+    public static function setConn($connDB){
+        self::$conn =$connDB;
+    }
+
 
 }
 

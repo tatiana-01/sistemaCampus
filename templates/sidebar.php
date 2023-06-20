@@ -26,6 +26,17 @@
         </li>
     </ul>
     <ul class="side-menu">
+        <li class="divider text-center" data-text="Pensum"></li>
+        <li>
+            <a href="#"><i class='bx bxs-location-plus icon'>Materias</i></a>
+            <ul class="side-dropdown">
+                <li><a href="/luiscarlos/RegMaterias.php"><i class='bx bxs-map icon'></i>Registrar</a></li>
+                <li><a href="#"><i class='bx bx-table icon'></i>Listar</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="side-menu">
         <li class="divider text-center" data-text="LOCALIZACIÓN"></li>
         <li>
             <a href="#"><i class='bx bxs-location-plus icon'></i>Pais, Region, Ciudad<i class='bx bx-chevron-right icon-right'></i></a>
