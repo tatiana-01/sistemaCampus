@@ -5,6 +5,9 @@
     use Models\Pais;
     use Models\Region;
     use Models\Ciudad;
+    use Models\Eps;
+    use Models\Rol;
+    use Models\Persona;
 
     $db = new Database();
     $conn = $db -> getConnection('mysql'); //conexion con mysql
@@ -12,5 +15,8 @@
     Pais :: setConn($conn);
     Region :: setConn($conn);
     Ciudad :: setConn($conn);
+    Eps :: setConn($conn);
+    Rol :: setConn($conn);
+    Persona :: setConn($conn);
 
 ?>

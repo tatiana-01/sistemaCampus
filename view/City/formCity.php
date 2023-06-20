@@ -22,7 +22,7 @@
                             <div class="mb-3">
 
                                 <label for="id_pais" class="form-label">Pais:</label>
-                                <select class="form-select" id="id_pais">
+                                <select class="form-select id_pais" id="id_pais">
                                     <option selected>Seleccione un pais:</option>
                                     <?php foreach ($datosPais as $itemPais) { ?>
                                         <option value="<?php echo $itemPais['id_pais']; ?>"><?php echo $itemPais['nombre_pais']; ?></option>
@@ -35,7 +35,7 @@
                             <div class="mb-3">
 
                                 <label for="id_region" class="form-label">Region:</label>
-                                <select class="form-select" name="id_region" id="id_region">
+                                <select class="form-select id_region" name="id_region" id="id_region">
                                     <option selected>Seleccione una region</option>
                                 </select>
 

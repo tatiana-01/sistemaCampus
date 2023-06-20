@@ -1,6 +1,6 @@
 <!-- HEADER -->
 <?php
-    include_once __DIR__ . '/templates/header.php';
+    include_once __DIR__ . '/templates/headerLocati.php';
 ?>
 <!-- HEADER -->
 
@@ -15,7 +15,7 @@
 
     <!-- NAVBAR -->
     <?php
-    include_once __DIR__ . '/templates/navbar.php';
+        include_once __DIR__ . '/templates/navbar.php';
     ?>
     <!-- NAVBAR -->
     <!-- NAVBAR DOS -->
@@ -32,11 +32,11 @@
                     <a class="nav-link menu" href="#" data-veryocultar='["#contenidoCiudad", ["#contenidoPais", "#contenidoRegion"]]'>Registro Ciudad</a>
                     <!--<a class="nav-link listarTodo" href="#">Listar Todo</a>-->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle listarTodo" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Listar Todo</a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Listar Todo</a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="#">Paises</a></li>
-                            <li><a class="dropdown-item" href="#">Regiones</a></li>
-                            <li><a class="dropdown-item" href="#">Ciudades</a></li>
+                            <li><a class="dropdown-item menuLista" href="#" data-veryocultarlist='["#listPais", ["#listRegion", "#listCiudad"]]'>Paises</a></li>
+                            <li><a class="dropdown-item menuLista" href="#" data-veryocultarlist='["#listRegion", ["#listPais", "#listCiudad"]]'>Regiones</a></li>
+                            <li><a class="dropdown-item menuLista" href="#" data-veryocultarlist='["#listCiudad", ["#listPais", "#listRegion"]]'>Ciudades</a></li>
                         </ul>
                     </li>
                 </div>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </section>
-            <br/>
+            
             <section class="container" id="listRegion">
                 <div class="card">
                     <h5 class="card-header text-center">Regiones</h5>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </section>
-            <br/>
+            
             <section class="container" id="listCiudad">
                 <div class="card">
                     <h5 class="card-header text-center">Ciudades</h5>

@@ -46,6 +46,10 @@ li {
 	display: none;
 }
 
+#listarRegistroEps, #listarRegistroRol {
+	display: none;
+}
+
 
 
 /* SIDEBAR */

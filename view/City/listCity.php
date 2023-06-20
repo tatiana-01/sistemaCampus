@@ -91,7 +91,7 @@
                                         <div class="mb-3">
 
                                             <label for="id_pais" class="form-label">Pais:</label>
-                                            <select class="form-select" id="id_pais">
+                                            <select class="form-select id_pais" id="id_pais">
                                                 <option selected>Seleccione un pais:</option>
                                                 <?php foreach ($datosPais as $itemPais) { ?>
                                                     <option value="<?php echo $itemPais['id_pais']; ?>"><?php echo $itemPais['nombre_pais']; ?></option>
@@ -104,7 +104,7 @@
                                         <div class="mb-3">
 
                                             <label for="id_region" class="form-label">Region:</label>
-                                            <select class="form-select" name="id_region" id="id_region">
+                                            <select class="form-select id_region" name="id_region" id="id_region">
                                                 <option selected>Seleccione una region</option>
                                             </select>
 
@@ -133,16 +133,16 @@
 </div>
 
 <script>
-    var row;
+    let row;
     let idCountryBorrarCiu;
     $('#miTabla').DataTable().destroy();
     $(document).ready(function() {
-        var tabla = $('#misCiudad').DataTable();
+        let tabla = $('#misCiudad').DataTable();
 
         // Evento click en los botones dentro de la tabla
         $('#misCiudad tbody').on('click', '.eliminarCiudad', function() {
             row = tabla.row($(this).parents('tr'));
-            var fila = tabla.row($(this).closest('tr')).data();
+            let fila = tabla.row($(this).closest('tr')).data();
             idCountryBorrarCiu = fila[0]; // Obtener el valor de la columna 'Nombre'
 
             // Abrir el modal y mostrar el nombre del usuario
@@ -153,14 +153,14 @@
             const frmCiu = document.querySelector('#frmUpdateDataCiu');
             const inputsData = new FormData(frmCiu);
             row = tabla.row($(this).parents('tr'));
-            var fila = tabla.row($(this).closest('tr')).data();
+            let fila = tabla.row($(this).closest('tr')).data();
             idCountryBorrarCiu = fila[0]; // Obtener el valor de la columna 'Nombre'
             inputsData.set("id_ciudad",fila[0]);
             inputsData.set("id_region",fila[1]);
             inputsData.set("ciudad_nombre",fila[2]);
             document.querySelector('.ciu').innerHTML = fila[0];
             // Itera a través de los pares clave-valor de los datos
-            for (var pair of inputsData.entries()) {
+            for (let pair of inputsData.entries()) {
                 // Establece los valores correspondientes en el formulario
                 frmCiu.elements[pair[0]].value = pair[1];
             }

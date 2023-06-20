@@ -121,16 +121,16 @@
 </div>
 
 <script>
-    var row;
+    let row;
     let idCountryBorrarRe;
     $('#miTabla').DataTable().destroy();
     $(document).ready(function() {
-        var tabla = $('#misRegion').DataTable();
+        let tabla = $('#misRegion').DataTable();
 
         // Evento click en los botones dentro de la tabla
         $('#misRegion tbody').on('click', '.eliminarRegion', function() {
             row = tabla.row($(this).parents('tr'));
-            var fila = tabla.row($(this).closest('tr')).data();
+            let fila = tabla.row($(this).closest('tr')).data();
             idCountryBorrarRe = fila[0]; // Obtener el valor de la columna 'Nombre'
 
             // Abrir el modal y mostrar el nombre del usuario
@@ -141,14 +141,14 @@
             const frmRe = document.querySelector('#frmUpdateDataRe');
             const inputsData = new FormData(frmRe);
             row = tabla.row($(this).parents('tr'));
-            var fila = tabla.row($(this).closest('tr')).data();
+            let fila = tabla.row($(this).closest('tr')).data();
             idCountryBorrarRe = fila[0]; // Obtener el valor de la columna 'Nombre'
             inputsData.set("id_region",fila[0]);
             inputsData.set("id_pais",fila[1]);
             inputsData.set("nombre_region",fila[2]);
             document.querySelector('.reg').innerHTML = fila[0];
             // Itera a través de los pares clave-valor de los datos
-            for (var pair of inputsData.entries()) {
+            for (let pair of inputsData.entries()) {
                 // Establece los valores correspondientes en el formulario
                 frmRe.elements[pair[0]].value = pair[1];
             }

@@ -1,19 +1,17 @@
-<?php
+<?php 
     namespace Models;
-    class Region {
+    class Rol {
 
         //definimos las varibles
         protected static $conn;
-        protected static $columnsTbl = ['id_region', 'nombre_region', 'id_pais'];
-        private $id_region;
-        private $nombre_region;
-        private $id_pais;
+        protected static $columnsTbl = ['id_rol', 'name_rol'];
+        private $id_rol;
+        private $name_rol;
 
         public function __construct($args = [])
         {
-            $this -> id_region = $args['id_region'] ?? '';
-            $this -> nombre_region = $args['nombre_region'] ?? '';
-            $this -> id_pais = $args['id_pais'] ?? '';
+            $this->id_rol = $args['id_rol'] ?? '';
+            $this->name_rol = $args['name_rol'] ?? '';
         }
 
         //definimos la funcion para guardarlos en la base de datos (insertar datos)
@@ -23,15 +21,14 @@
             $dataBd = $this->sanitizarAttributos();
             $valorCols = $delimiter . join(',:', array_keys($data));
             $cols = join(',', array_keys($data));
-            $sql = "INSERT INTO regiones ($cols) VALUES ($valorCols)";
+            $sql = "INSERT INTO roles ($cols) VALUES ($valorCols)";
             $stmt = self::$conn->prepare($sql);
 
             try {
                 $stmt->execute($data);
                 $response = [[
-                    'id_region' => self::$conn->lastInsertId(), //permite obtener el ultimo Id que se a insertado (por se auto-incremental)
-                    'nombre_region' => $data['nombre_region'],
-                    'id_pais' => $data['id_pais']
+                    'id_rol' => self::$conn->lastInsertId(), //permite obtener el ultimo Id que se a insertado (por se auto-incremental)
+                    'name_rol' => $data['name_rol']
                 ]];
             } catch (\PDOException $e) {
                 return $sql . "<br/>" . $e->getMessage();
@@ -42,7 +39,7 @@
         //para traer los datos del la base de datos para verla en el HTML
         public function loadAllData()
         {
-            $sql = "SELECT id_region, nombre_region, id_pais FROM regiones";
+            $sql = "SELECT id_rol, name_rol FROM roles";
             $stmt = self::$conn->prepare($sql);
             $stmt->execute();
             $miSgav = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -51,8 +48,8 @@
 
         //funcion para traer datos de la base de datos poa id
         public function loadByIdData($id)
-         {
-            $sql = "SELECT id_region, nombre_region, id_pais FROM regiones WHERE id_pais = $id";
+        {
+            $sql = "SELECT id_rol, name_rol FROM roles WHERE id_rol = $id";
             $stmt = self::$conn->prepare($sql);
             $stmt->execute();
             $miSgav = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -62,7 +59,7 @@
         //funcion para borrar datos de la base de datos
         public function deleteData($id)
         {
-            $sql = "DELETE FROM regiones WHERE id_region = :id";
+            $sql = "DELETE FROM roles WHERE id_rol = :id";
             $stmt = self::$conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
@@ -71,11 +68,10 @@
         //funcion para editar los datos de la base de datos 
         public function updateData($data)
         {
-            $sql = "UPDATE regiones SET nombre_region = :nombre_region, id_pais = :id_pais WHERE id_region = :id";
+            $sql = "UPDATE roles SET name_rol = :name_rol WHERE id_rol = :id";
             $stmt = self::$conn->prepare($sql);
-            $stmt->bindParam(':nombre_region', $data['nombre_region']);
-            $stmt->bindParam(':id_pais', $data['id_pais']);
-            $stmt->bindParam(':id', $data['id_region']);
+            $stmt->bindParam(':name_rol', $data['name_rol']);
+            $stmt->bindParam(':id', $data['id_rol']);
             $stmt->execute();
         }
 
@@ -90,7 +86,7 @@
         {
             $atributos = [];
             foreach (self::$columnsTbl as $columna) {
-                if ($columna === 'id_region') continue;
+                if ($columna === 'id_rol') continue;
                 $atributos[$columna] = $this->$columna;
             }
             return $atributos;
@@ -105,5 +101,6 @@
             }
             return $sanitizado;
         }
+        
     }
 ?>

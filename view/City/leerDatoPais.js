@@ -5,15 +5,17 @@ let formDatosCiudad = document.querySelector('#formCiudad');
 let myheaderDato = new Headers({"Content-Type" : "application/json"});
 
 //leemos el select y de asignamos un evento
-formDatosCiudad.querySelector('#id_pais').addEventListener('change', async (e) => {
-    let dato = e.target.value;
-    postEnviarDato(dato)
-        .then(resp => {
-            //aqui ba la respuesta a lo que se envio
-            //console.log(resp)
-            llenarSelect(resp);
-        });
-})
+document.querySelectorAll('.id_pais').forEach((val, opc) => {
+    val.addEventListener('change', async (e) => {
+        let dato = e.target.value;
+        postEnviarDato(dato)
+            .then(resp => {
+                //aqui ba la respuesta a lo que se envio
+                //console.log(resp)
+                llenarSelect(resp);
+            });
+    })
+});
 
 //metodo POST enviar el dato
 const postEnviarDato = async (data) => {
@@ -30,18 +32,18 @@ const postEnviarDato = async (data) => {
 //funcion para llenar el select con las regiones 
 const llenarSelect = (datos) => {
     let datosRegion = JSON.parse(datos);
-    let selectRegion = formDatosCiudad.querySelector('#id_region');
-
-    selectRegion.innerHTML = '';
-    const itemOpcion = document.createElement('option');
-    itemOpcion.selected;
-    itemOpcion.innerHTML = "Seleccione una region";
-    selectRegion.appendChild(itemOpcion);
-    datosRegion.forEach(itemRegion => {
+    document.querySelectorAll('.id_region').forEach((selectRegion, opc) => {
+        selectRegion.innerHTML = '';
         const itemOpcion = document.createElement('option');
-        itemOpcion.value = itemRegion.id_region;
-        itemOpcion.innerHTML = itemRegion.nombre_region;
+        itemOpcion.selected;
+        itemOpcion.innerHTML = "Seleccione una region";
         selectRegion.appendChild(itemOpcion);
+        datosRegion.forEach(itemRegion => {
+            const itemOpcion = document.createElement('option');
+            itemOpcion.value = itemRegion.id_region;
+            itemOpcion.innerHTML = itemRegion.nombre_region;
+            selectRegion.appendChild(itemOpcion);
+        });
     });
 }
 

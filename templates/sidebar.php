@@ -26,11 +26,25 @@
         </li>
     </ul>
     <ul class="side-menu">
-        <li class="divider text-center" data-text="LOCALIZACIÓN"></li>
+        <li class="divider text-center" data-text="REGISTRO, LISTAR"></li>
         <li>
             <a href="#"><i class='bx bxs-location-plus icon'></i>Pais, Region, Ciudad<i class='bx bx-chevron-right icon-right'></i></a>
             <ul class="side-dropdown">
                 <li><a href="/location.php"><i class='bx bxs-map icon'></i>Registrar</a></li>
+                <li><a href="#"><i class='bx bx-table icon'></i>Listar</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class='bx bxs-first-aid icon'></i>EPS<i class='bx bx-chevron-right icon-right'></i></a>
+            <ul class="side-dropdown">
+                <li><a href="/eps.php"><i class='bx bxs-user-plus icon'></i>Registrar</a></li>
+                <li><a href="#"><i class='bx bx-table icon'></i>Listar</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class='bx bxs-user-detail icon'></i>Rol Persona<i class='bx bx-chevron-right icon-right'></i></a>
+            <ul class="side-dropdown">
+                <li><a href="/rol.php"><i class='bx bxs-user-plus icon'></i>Registrar</a></li>
                 <li><a href="#"><i class='bx bx-table icon'></i>Listar</a></li>
             </ul>
         </li>

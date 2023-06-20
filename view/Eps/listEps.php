@@ -1,34 +1,34 @@
 <?php
     require_once 'app.php';
 
-    use Models\Pais;
+    use Models\Eps;
 
-    $objPais = new Pais();
-    $datosPais = $objPais->loadAllData();
+    $objEps = new Eps();
+    $datosEps = $objEps -> loadAllData();
 
 ?>
 
 <section>
     <div class="container">
-        <table id="misPaises" class="table table-striped table-hover dataTable">
+        <table id="misEps" class="table table-striped table-hover dataTable">
             <thead>
                 <tr>
-                    <th>Id Pais</th>
-                    <th>Nombre Pais</th>
+                    <th>Id Eps </th>
+                    <th>Nombre EPS</th>
                     <th></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($datosPais as $pais) {?>
+                <?php foreach ($datosEps as $eps) {?>
                     <tr>
-                        <td><?php echo $pais['id_pais']; ?></td>
-                        <td><?php echo $pais['nombre_pais']; ?></td>
+                        <td><?php echo $eps['id_eps']; ?></td>
+                        <td><?php echo $eps['eps_nombre']; ?></td>
                         <td>
-                            <button type="button" class="btn btn-danger eliminarPais">Eliminar</button>
+                            <button type="button" class="btn btn-danger eliminarEps">Eliminar</button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-primary editarPais">Editar</button>
+                            <button type="button" class="btn btn-primary editarEps">Editar</button>
                         </td>
                     </tr>
                 <?php }?>
@@ -38,20 +38,20 @@
 </section>
 
 <!--Modal que muestra el datoa a Eliminar-->
-<div class="modal fade " id="verifdel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade " id="verifdelEps" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-l">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">** PAIS **</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">** EPS **</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="card text-center">
                     <h5 class="card-header">Confirmar Eliminacion</h5>
                     <div class="card-body">
-                        <div id="info"></div>
+                        <div id="infoEps"></div>
                         <br/>
-                        <button type="button" class="btn btn-warning borrardef" onclick="borrarDataDb()" data-bs-dismiss="modal">Eliminar</button>
+                        <button type="button" class="btn btn-warning borrardef" onclick="borrarDataDbEps()" data-bs-dismiss="modal">Eliminar</button>
                     </div>
                 </div>
             </div>
@@ -63,39 +63,39 @@
 </div>
 
 <!--Modal que muestra los datos a editar-->
-<div class="modal fade " id="updateData" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade " id="updateDataEps" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">++ PAIS +++</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">++ EPS +++</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="card">
-                    <h5 class="card-header text-center">Editar Pais</h5>
+                    <h5 class="card-header text-center">Editar EPS</h5>
                     <div class="card-body text-center">
-                        <form id="frmUpdateData">
+                        <form id="frmUpdateDataEps">
                             <div class="container">
                                 <div class="row bg-light p-1">
-                                    <div class="col-4">
-                                        <label for="id_pais" class="form-label">id Pais:</label>
+                                    <div class="col-3">
+                                        <label for="id_eps" class="form-label">Id Eps:</label>
                                         <br/>
-                                        <span class="badge bg-primary"></span>
-                                        <input id="id_pais" name="id_pais" type="hidden" value="0">
+                                        <span class="badge eps bg-primary"></span>
+                                        <input id="id_eps" name="id_eps" type="hidden" value="0">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-7">
                                         <div class="mb-3">
-                                            <label for="nombre_pais" class="form-label">Nombre del Pais:</label>
-                                            <input type="text" class="form-control" id="nombre_pais" name="nombre_pais">
+                                            <label for="eps_nombre" class="form-label">Nombre de la EPS:</label>
+                                            <input type="text" class="form-control" id="eps_nombre" name="eps_nombre">
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-2">
 
                                     </div>
                                 </div>
                             </div>
                             <div class="container text-center bg-light p-1">
-                                <button type="button" class="btn btn-success" onclick="editarData()" data-bs-dismiss="modal">GUARDAR</button>
+                                <button type="button" class="btn btn-success" onclick="editarDataEps()" data-bs-dismiss="modal">GUARDAR</button>
                             </div>
                         </form>
                     </div>
@@ -110,59 +110,59 @@
 
 <script>
     let row;
-    let idCountryBorrar;
+    let idCountryBorrarEps;
     $('#miTabla').DataTable().destroy();
     $(document).ready(function() {
-        let tabla = $('#misPaises').DataTable();
+        let tabla = $('#misEps').DataTable();
 
         // Evento click en los botones dentro de la tabla
-        $('#misPaises tbody').on('click', '.eliminarPais', function() {
+        $('#misEps tbody').on('click', '.eliminarEps', function() {
             row = tabla.row($(this).parents('tr'));
             let fila = tabla.row($(this).closest('tr')).data();
-            idCountryBorrar = fila[0]; // Obtener el valor de la columna 'Nombre'
+            idCountryBorrarEps = fila[0]; // Obtener el valor de la columna 'Nombre'
 
             // Abrir el modal y mostrar el nombre del usuario
-            abrirModal(fila[0], fila[1]);
+            abrirModalEps(fila[0], fila[1]);
         });
 
-        $('#misPaises tbody').on('click', '.editarPais', function() {
-            const frm = document.querySelector('#frmUpdateData');
-            const inputsData = new FormData(frm);
+        $('#misEps tbody').on('click', '.editarEps', function() {
+            const frmEps = document.querySelector('#frmUpdateDataEps');
+            const inputsData = new FormData(frmEps);
             row = tabla.row($(this).parents('tr'));
             let fila = tabla.row($(this).closest('tr')).data();
-            idCountryBorrar = fila[0]; // Obtener el valor de la columna 'Nombre'
-            inputsData.set("id_pais",fila[0]);
-            inputsData.set("nombre_pais",fila[1]);
-            document.querySelector('.badge').innerHTML = fila[0];
+            idCountryBorrarEps = fila[0]; // Obtener el valor de la columna 'Nombre'
+            inputsData.set("id_eps",fila[0]);
+            inputsData.set("eps_nombre",fila[1]);
+            document.querySelector('.eps').innerHTML = fila[0];
             // Itera a través de los pares clave-valor de los datos
             for (let pair of inputsData.entries()) {
                 // Establece los valores correspondientes en el formulario
-                frm.elements[pair[0]].value = pair[1];
+                frmEps.elements[pair[0]].value = pair[1];
             }
-            $('#updateData').modal('show');
+            $('#updateDataEps').modal('show');
             // Abrir el modal y mostrar el nombre del usuario
         });
     });
 
-    function editarData(){
-        const frm = document.querySelector('#frmUpdateData');
-        const info = Object.fromEntries(new FormData(frm).entries());
+    function editarDataEps(){
+        const frmEps = document.querySelector('#frmUpdateDataEps');
+        const info = Object.fromEntries(new FormData(frmEps).entries());
         console.log(info);
 
-        guardarDataDb(info)
+        guardarDataDbEps(info)
             .then(resp => {
                 //document.querySelector("pre").innerHTML = r;
             });
     }
 
-    function abrirModal(idpk, info) {
-        $('#verifdel').modal('show');
-        document.querySelector('#info').innerHTML = 'Desea eliminar a: <b>' + info + '</b> con Id: <b>' + idpk + '</b>';
+    function abrirModalEps(idpk, info) {
+        $('#verifdelEps').modal('show');
+        document.querySelector('#infoEps').innerHTML = 'Desea eliminar a: <b>' + info + '</b> con Id: <b>' + idpk + '</b>';
     }
 
     //funcion para el DELETE, para borrar un dato de la base de datos
-    function borrarDataDb() {
-        fetch('controllers/Pais/delete_data.php?id=' + idCountryBorrar, {
+    function borrarDataDbEps() {
+        fetch('controllers/Eps/delete_data.php?id=' + idCountryBorrarEps, {
                 method: 'DELETE'
             })
             .then(response => {
@@ -175,19 +175,19 @@
     }
 
     //funcion para el POST, para guardar el dato editado en la base de datos 
-    const guardarDataDb = async(data)=>{
-        let myHeaderPais = new Headers({"Content-Type": "application/json; charset:utf8"});
+    const guardarDataDbEps = async(data)=>{
+        let myHeaderEps = new Headers({"Content-Type": "application/json; charset:utf8"});
         let config = {
             method : "POST",
-            headers : myHeaderPais,
+            headers : myHeaderEps,
             body : JSON.stringify(data)
         }
-        let res = await ( await fetch("controllers/Pais/update_data.php" ,config)).text();
+        let res = await ( await fetch("controllers/Eps/update_data.php" ,config)).text();
         return res;
     }
 
 
-    $('#misPaises').DataTable({
+    $('#misEps').DataTable({
         pageLength: 4,
         language: {
 

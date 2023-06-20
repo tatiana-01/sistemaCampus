@@ -1,34 +1,34 @@
 <?php
     require_once 'app.php';
 
-    use Models\Pais;
+    use Models\Rol;
 
-    $objPais = new Pais();
-    $datosPais = $objPais->loadAllData();
+    $objRol = new Rol();
+    $datosRol = $objRol -> loadAllData();
 
 ?>
 
 <section>
     <div class="container">
-        <table id="misPaises" class="table table-striped table-hover dataTable">
+        <table id="misRol" class="table table-striped table-hover dataTable">
             <thead>
                 <tr>
-                    <th>Id Pais</th>
-                    <th>Nombre Pais</th>
+                    <th>Id ROL </th>
+                    <th>Nombre ROL</th>
                     <th></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($datosPais as $pais) {?>
+                <?php foreach ($datosRol as $rol) {?>
                     <tr>
-                        <td><?php echo $pais['id_pais']; ?></td>
-                        <td><?php echo $pais['nombre_pais']; ?></td>
+                        <td><?php echo $rol['id_rol']; ?></td>
+                        <td><?php echo $rol['name_rol']; ?></td>
                         <td>
-                            <button type="button" class="btn btn-danger eliminarPais">Eliminar</button>
+                            <button type="button" class="btn btn-danger eliminarRol">Eliminar</button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-primary editarPais">Editar</button>
+                            <button type="button" class="btn btn-primary editarRol">Editar</button>
                         </td>
                     </tr>
                 <?php }?>
@@ -38,20 +38,20 @@
 </section>
 
 <!--Modal que muestra el datoa a Eliminar-->
-<div class="modal fade " id="verifdel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade " id="verifdelRol" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-l">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">** PAIS **</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">** TIPO DE ROL **</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="card text-center">
                     <h5 class="card-header">Confirmar Eliminacion</h5>
                     <div class="card-body">
-                        <div id="info"></div>
+                        <div id="infoRol"></div>
                         <br/>
-                        <button type="button" class="btn btn-warning borrardef" onclick="borrarDataDb()" data-bs-dismiss="modal">Eliminar</button>
+                        <button type="button" class="btn btn-warning borrardef" onclick="borrarDataDbRol()" data-bs-dismiss="modal">Eliminar</button>
                     </div>
                 </div>
             </div>
@@ -63,39 +63,39 @@
 </div>
 
 <!--Modal que muestra los datos a editar-->
-<div class="modal fade " id="updateData" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade " id="updateDataRol" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">++ PAIS +++</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">++ TIPO DE ROL +++</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="card">
-                    <h5 class="card-header text-center">Editar Pais</h5>
+                    <h5 class="card-header text-center">Editar ROL</h5>
                     <div class="card-body text-center">
-                        <form id="frmUpdateData">
+                        <form id="frmUpdateDataRol">
                             <div class="container">
                                 <div class="row bg-light p-1">
-                                    <div class="col-4">
-                                        <label for="id_pais" class="form-label">id Pais:</label>
+                                    <div class="col-3">
+                                        <label for="id_rol" class="form-label">Id Rol:</label>
                                         <br/>
-                                        <span class="badge bg-primary"></span>
-                                        <input id="id_pais" name="id_pais" type="hidden" value="0">
+                                        <span class="badge rol bg-primary"></span>
+                                        <input id="id_rol" name="id_rol" type="hidden" value="0">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <div class="mb-3">
-                                            <label for="nombre_pais" class="form-label">Nombre del Pais:</label>
-                                            <input type="text" class="form-control" id="nombre_pais" name="nombre_pais">
+                                            <label for="name_rol" class="form-label">Nombre del tipo de Rol:</label>
+                                            <input type="text" class="form-control" id="name_rol" name="name_rol">
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-3">
 
                                     </div>
                                 </div>
                             </div>
                             <div class="container text-center bg-light p-1">
-                                <button type="button" class="btn btn-success" onclick="editarData()" data-bs-dismiss="modal">GUARDAR</button>
+                                <button type="button" class="btn btn-success" onclick="editarDataRol()" data-bs-dismiss="modal">GUARDAR</button>
                             </div>
                         </form>
                     </div>
@@ -110,59 +110,59 @@
 
 <script>
     let row;
-    let idCountryBorrar;
+    let idCountryBorrarRol;
     $('#miTabla').DataTable().destroy();
     $(document).ready(function() {
-        let tabla = $('#misPaises').DataTable();
+        let tabla = $('#misRol').DataTable();
 
         // Evento click en los botones dentro de la tabla
-        $('#misPaises tbody').on('click', '.eliminarPais', function() {
+        $('#misRol tbody').on('click', '.eliminarRol', function() {
             row = tabla.row($(this).parents('tr'));
             let fila = tabla.row($(this).closest('tr')).data();
-            idCountryBorrar = fila[0]; // Obtener el valor de la columna 'Nombre'
+            idCountryBorrarRol = fila[0]; // Obtener el valor de la columna 'Nombre'
 
             // Abrir el modal y mostrar el nombre del usuario
-            abrirModal(fila[0], fila[1]);
+            abrirModalRol(fila[0], fila[1]);
         });
 
-        $('#misPaises tbody').on('click', '.editarPais', function() {
-            const frm = document.querySelector('#frmUpdateData');
-            const inputsData = new FormData(frm);
+        $('#misRol tbody').on('click', '.editarRol', function() {
+            const frmRol = document.querySelector('#frmUpdateDataRol');
+            const inputsData = new FormData(frmRol);
             row = tabla.row($(this).parents('tr'));
             let fila = tabla.row($(this).closest('tr')).data();
-            idCountryBorrar = fila[0]; // Obtener el valor de la columna 'Nombre'
-            inputsData.set("id_pais",fila[0]);
-            inputsData.set("nombre_pais",fila[1]);
-            document.querySelector('.badge').innerHTML = fila[0];
+            idCountryBorrarRol = fila[0]; // Obtener el valor de la columna 'Nombre'
+            inputsData.set("id_rol",fila[0]);
+            inputsData.set("name_rol",fila[1]);
+            document.querySelector('.rol').innerHTML = fila[0];
             // Itera a través de los pares clave-valor de los datos
             for (let pair of inputsData.entries()) {
                 // Establece los valores correspondientes en el formulario
-                frm.elements[pair[0]].value = pair[1];
+                frmRol.elements[pair[0]].value = pair[1];
             }
-            $('#updateData').modal('show');
+            $('#updateDataRol').modal('show');
             // Abrir el modal y mostrar el nombre del usuario
         });
     });
 
-    function editarData(){
-        const frm = document.querySelector('#frmUpdateData');
-        const info = Object.fromEntries(new FormData(frm).entries());
+    function editarDataRol(){
+        const frmRol = document.querySelector('#frmUpdateDataRol');
+        const info = Object.fromEntries(new FormData(frmRol).entries());
         console.log(info);
 
-        guardarDataDb(info)
+        guardarDataDbRol(info)
             .then(resp => {
                 //document.querySelector("pre").innerHTML = r;
             });
     }
 
-    function abrirModal(idpk, info) {
-        $('#verifdel').modal('show');
-        document.querySelector('#info').innerHTML = 'Desea eliminar a: <b>' + info + '</b> con Id: <b>' + idpk + '</b>';
+    function abrirModalRol(idpk, info) {
+        $('#verifdelRol').modal('show');
+        document.querySelector('#infoRol').innerHTML = 'Desea eliminar a: <b>' + info + '</b> con Id: <b>' + idpk + '</b>';
     }
 
     //funcion para el DELETE, para borrar un dato de la base de datos
-    function borrarDataDb() {
-        fetch('controllers/Pais/delete_data.php?id=' + idCountryBorrar, {
+    function borrarDataDbRol() {
+        fetch('controllers/Rol/delete_data.php?id=' + idCountryBorrarRol, {
                 method: 'DELETE'
             })
             .then(response => {
@@ -175,19 +175,19 @@
     }
 
     //funcion para el POST, para guardar el dato editado en la base de datos 
-    const guardarDataDb = async(data)=>{
-        let myHeaderPais = new Headers({"Content-Type": "application/json; charset:utf8"});
+    const guardarDataDbRol = async(data)=>{
+        let myHeaderRol = new Headers({"Content-Type": "application/json; charset:utf8"});
         let config = {
             method : "POST",
-            headers : myHeaderPais,
+            headers : myHeaderRol,
             body : JSON.stringify(data)
         }
-        let res = await ( await fetch("controllers/Pais/update_data.php" ,config)).text();
+        let res = await ( await fetch("controllers/Rol/update_data.php" ,config)).text();
         return res;
     }
 
 
-    $('#misPaises').DataTable({
+    $('#misRol').DataTable({
         pageLength: 4,
         language: {
 

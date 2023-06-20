@@ -30,7 +30,8 @@
                 $stmt->execute($data);
                 $response = [[
                     'id_ciudad' => self::$conn->lastInsertId(), //permite obtener el ultimo Id que se a insertado (por se auto-incremental)
-                    'ciudad_nombre' => $data['ciudad_nombre']
+                    'ciudad_nombre' => $data['ciudad_nombre'],
+                    'id_region' => $data['id_region']
                 ]];
             } catch (\PDOException $e) {
                 return $sql . "<br/>" . $e->getMessage();
@@ -51,7 +52,7 @@
         //funcion para traer datos de la base de datos poa id
         public function loadByIdData($id)
          {
-            $sql = "SELECT id_ciudad, ciudad_nombre, id_region FROM regiones WHERE id_region = $id";
+            $sql = "SELECT id_ciudad, ciudad_nombre, id_region FROM ciudad WHERE id_region = $id";
             $stmt = self::$conn->prepare($sql);
             $stmt->execute();
             $miSgav = $stmt->fetchAll(\PDO::FETCH_ASSOC);

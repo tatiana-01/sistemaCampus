@@ -12,7 +12,8 @@
 	<script src="js/jquery-3.7.0.slim.js"></script>
 	<script src="js/DataTables/datatables.min.js"></script>
 	<script src="js/mainMenu.js" async></script>
+	<script src="js/mainMenuRol.js" defer></script>
+    <script src="view/Rol/regRol.js" defer></script>
 	<title>Campus Lands</title>
-    
 </head>
 <body>
