@@ -13,6 +13,7 @@ myformAcudiente.addEventListener("submit", async (e) => {
         headers: myHeadersAcudiente,
         body: JSON.stringify(dataAcudiente)
     };
+    e.preventDefault();
     let resAcudiente = await (await fetch("../../controllers/acudiente/insertAcudiente.php", configAcudiente)).text();
     console.log(resAcudiente);
     let configCamperAcudiente = { 
@@ -20,6 +21,8 @@ myformAcudiente.addEventListener("submit", async (e) => {
         headers: myHeadersAcudiente,
         body: JSON.stringify(dataCamperAcudiente)
     };
+    e.preventDefault();
     let resCamperAcudiente = await (await fetch("../../controllers/camper_acudiente/insertCamperAcudiente.php", configCamperAcudiente)).text();
     console.log(resAcudiente);
+    location.reload();
 })

@@ -3,5 +3,5 @@
     use Models\Ruta;
     $miRuta = new Ruta();
     $miRuta->deleteData($_GET['id']); 
-    header('location:../../views/ruta.php');
+    header('location:../../views/ruta/ruta.php');
 ?>
