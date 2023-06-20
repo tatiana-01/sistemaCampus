@@ -4,6 +4,7 @@
     use Models\Personas;
     $objEmpleado = new Empleado();
     $objPersonas=new Personas();
+
 ?>
 <!-- HEADER -->
 <?php
@@ -50,10 +51,18 @@
             <?php 
             $empleados=$objEmpleado->loadAllData();
             foreach ($empleados as $empleado) {
-                
                 $personas=$objPersonas->loadDataById($empleado['id_persona']);
-                echo var_dump($personas);
-                echo "<option value='$empleado[id_empleado]'>".$personas[0]['persona_nombre'].' '. $personas[0]['persona_apellido'] ."</option>";
+                //echo var_dump($personas);
+                if($_GET['idEmpleado']){
+                    $idEmpleado=$_GET['idEmpleado']; 
+                    if ($idEmpleado==$empleado['id_empleado']) {
+                        echo "<option selected value='$empleado[id_empleado]'>".$personas[0]['persona_nombre'].' '. $personas[0]['persona_apellido'] ."</option>";   
+                    }else{
+                        echo "<option value='$empleado[id_empleado]'>".$personas[0]['persona_nombre'].' '. $personas[0]['persona_apellido'] ."</option>";
+                    }
+                }else{
+                    echo "<option value='$empleado[id_empleado]'>".$personas[0]['persona_nombre'].' '. $personas[0]['persona_apellido'] ."</option>";
+                }
             }
             ?>
         </select>

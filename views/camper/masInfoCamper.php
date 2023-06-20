@@ -66,17 +66,20 @@
                     $salon=$objCampers->loadDataByIdSalon($nivel[0]['id_salon']);
                     $matricula=$objMatriculas->loadDataByIdCamper($camper[0]['id_camper']);
                     $ruta=$objRutas->loadDataById($matricula[0]['id_ruta']);
-                    echo var_dump($matricula);
                     $camperAcudientes=$objCamperAcudiente->loadDataByIdCamper($camper[0]['id_camper']);
                 ?>
                 <div class="card bg-secondary-subtle" id="infoPersonas">
                     <img src="../../images/<?php echo $persona[0]['foto_persona'] ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="card-text">
-                            <p class="fw-bold">Nombre:</p>
-                            <p><?php echo $persona[0]['persona_nombre']; echo' '; echo $persona[0]['persona_apellido']?></p>
+                            <p class="fw-bold">Nombres:</p>
+                            <p><?php echo $persona[0]['persona_nombre'];?></p>
+                            <p class="fw-bold">Apellidos:</p>
+                            <p><?php echo $persona[0]['persona_apellido'];?></p>
+                            <p class="fw-bold">Tipo ID:</p>
+                            <p><?php echo $persona[0]['tipo_id'];?></p>
                             <p class="fw-bold">ID:</p>
-                            <p><?php echo $persona[0]['tipo_id']; echo ' '; echo $idPersona ?></p>
+                            <p><?php echo $idPersona ?></p>
                             <p class="fw-bold">Fecha de nacimiento:</p>
                             <p><?php echo $persona[0]['fecha_nacimiento']?></p>
                             <p class="fw-bold">Email:</p>
@@ -126,8 +129,10 @@
                         echo '
                         <div class="card bg-secondary-subtle mb-4" id="infoAcudiente">
                             <div id="infoAcudiente">
+                                <p class="fw-bold mt-2">Tipo ID:</p>
+                                <p>'; echo $acudiente[0]['tipo_id']; echo '</p>
                                 <p class="fw-bold mt-2">ID:</p>
-                                <p>'; echo $acudiente[0]['tipo_id']; echo ' '; echo $acudiente[0]['id_acudiente']; echo '</p>
+                                <p>'; echo $acudiente[0]['id_acudiente']; echo '</p>
                                 <p class="fw-bold">Nombre:</p>
                                 <p>'; echo $acudiente[0]['nombre_acudiente']; echo '</p>
                                 <p class="fw-bold">Parentesco:</p>

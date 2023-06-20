@@ -59,6 +59,44 @@
             return $arl;
         }
 
+        public function loadDataRegionById($id){
+            
+            $sql = "SELECT * FROM regiones WHERE id_region=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $region= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $region;
+        }
+
+        public function loadDataPaisById($id){
+            
+            $sql = "SELECT * FROM paises WHERE id_pais=:id ";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            //$stmt->setFetchMode(\PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $pais= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $pais;
+        }
+
+        public function editData($data){
+            $sql = "UPDATE `empleado` SET `id_arl`=:id_arl WHERE `id_empleado`=:id_empleado";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id_arl', $data['id_arl'], \PDO::PARAM_STR); 
+            $stmt->bindParam(':id_empleado', $data['id_empleado'], \PDO::PARAM_INT);
+            //$stmt->bindParam(':id_empleado', $data['id_empleado'], \PDO::PARAM_INT); 
+            $stmt->execute();
+        }
+
+        public function deleteData($id){
+            $sql = "DELETE FROM empleado where id_empleado = :id";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }
+
         public static function setConn($connBd){
             self::$conn = $connBd;
         }

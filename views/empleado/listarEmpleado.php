@@ -86,7 +86,7 @@ error_reporting(E_ALL);
 <!-- NAVBAR -->
 <link rel="stylesheet" href="../../js/DataTables/datatables.min.css">
 <script src="../../js/DataTables/datatables.min.js"></script>
-<script src="controllerListarEmpleado.js"></script>
+<script src="tablaEmpleado.js"></script>
 <!-- FOOTER -->
 <?php
     include_once __DIR__ . '/../../templates/footer.php';

@@ -54,6 +54,31 @@
             $camper= $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $camper;
         }
+
+        public function editData($data){
+            $sql = "UPDATE `personas` SET `tipo_id`=:tipo_id,`persona_nombre`=:persona_nombre, `persona_apellido`=:persona_apellido,`fecha_nacimiento`=:fecha_nacimiento, `email`=:email, `persona_direccion`=:persona_direccion, `persona_telefono`=:persona_telefono, `id_ciudad`=:id_ciudad, `id_eps`=:id_eps WHERE `id_persona`=:id_persona";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':tipo_id', $data['tipo_id'], \PDO::PARAM_STR); 
+            $stmt->bindParam(':id_persona', $data['id_persona'], \PDO::PARAM_STR);
+            $stmt->bindParam(':persona_nombre', $data['persona_nombre'], \PDO::PARAM_STR);
+            $stmt->bindParam(':persona_apellido', $data['persona_apellido'], \PDO::PARAM_STR);
+            $stmt->bindParam(':fecha_nacimiento', $data['fecha_nacimiento'], \PDO::PARAM_STR);
+            $stmt->bindParam(':email', $data['email'], \PDO::PARAM_STR);
+            $stmt->bindParam(':persona_direccion', $data['persona_direccion'], \PDO::PARAM_STR);
+            $stmt->bindParam(':persona_telefono', $data['persona_telefono'], \PDO::PARAM_STR);
+            $stmt->bindParam(':id_ciudad', $data['id_ciudad'], \PDO::PARAM_INT);
+            $stmt->bindParam(':id_eps', $data['id_eps'], \PDO::PARAM_INT);
+            //$stmt->bindParam(':id_empleado', $data['id_empleado'], \PDO::PARAM_INT); 
+            $stmt->execute();
+        }
+
+        public function deleteData($id){
+            $sql = "DELETE FROM personas where id_persona = :id";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }
+        
         public static function setConn($connBd){
             self::$conn = $connBd;
         }

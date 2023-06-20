@@ -25,7 +25,7 @@ async function innerSelectRegion(valor){
         };
         let res = await (await fetch("../../controllers/campers/dataSelectRegiones.php", config)).text();
         let regiones=JSON.parse(res);
-        selectRegion.innerHTML='<option selected>Seleccione una region</option>';
+        selectRegion.innerHTML='<option>Seleccione una region</option>';
         regiones.forEach( (region)=> {
             console.log(region);
             const option = document.createElement('option');
@@ -33,6 +33,15 @@ async function innerSelectRegion(valor){
             option.innerText = region.nombre_region;
             selectRegion.appendChild(option);
         });
+        
+        try {
+            selectRegionEditar.value=data[17].dataset.region;
+            innerSelectCiudad(selectRegionEditar.value);  
+        } catch (error) {
+            
+        }
+            
+        
         
     } catch (error) {
         console.error(error);
@@ -57,7 +66,7 @@ async function innerSelectCiudad(valor){
         };
         let res = await (await fetch("../../controllers/campers/dataSelectCiudades.php", config)).text();
         let ciudades=JSON.parse(res);
-        selectCiudad.innerHTML='<option selected>Seleccione una ciudad</option>';
+        selectCiudad.innerHTML='<option>Seleccione una ciudad</option>';
         ciudades.forEach( (ciudad)=> {
             console.log(ciudad);
             const option = document.createElement('option');
@@ -65,6 +74,7 @@ async function innerSelectCiudad(valor){
             option.innerText = ciudad.ciudad_nombre;
             selectCiudad.appendChild(option);
         });
+ 
         
     } catch (error) {
         console.error(error);

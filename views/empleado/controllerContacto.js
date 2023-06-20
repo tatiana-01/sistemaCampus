@@ -10,6 +10,5 @@ myformContactoEmpleado.addEventListener("submit", async (e) => {
         body: JSON.stringify(dataContacto)
     };
     console.log(JSON.stringify(dataContacto));
-    e.preventDefault();
     let resContacto = await (await fetch("../../controllers/contacto_empleado/insertContactoEmpleado.php", configContacto)).text(); 
 })
