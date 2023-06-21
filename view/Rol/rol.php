@@ -1,12 +1,12 @@
 <!-- HEADER -->
 <?php
-    include_once __DIR__ . '/templates/headerRol.php';
+    include_once __DIR__ . '../../../templates/headerRol.php';
 ?>
 <!-- HEADER -->
 
 <!-- SIDEBAR -->
 <?php
-    include_once __DIR__ . '/templates/sidebar.php';
+    include_once __DIR__ . '../../../templates/sidebar.php';
 ?>
 <!-- SIDEBAR -->
 
@@ -15,7 +15,7 @@
 
     <!-- NAVBAR -->
     <?php
-        include_once __DIR__ . '/templates/navbar.php';
+        include_once __DIR__ . '../../../templates/navbar.php';
     ?>
     <!-- NAVBAR -->
     <!-- NAVBAR DOS -->
@@ -44,7 +44,7 @@
             
             <section id="contenidoRol">
                 <?php 
-                    include_once __DIR__ . '/view/Rol/formRol.php';
+                    include_once __DIR__ . '/formRol.php';
                 ?>
             </section>
 
@@ -59,7 +59,7 @@
                     <div class="card-body">
                 
                         <?php 
-                            include_once __DIR__ . '/view/Rol/listRol.php';
+                            include_once __DIR__ . '/listRol.php';
                         ?>
                     
                     </div>
@@ -75,6 +75,6 @@
 
 <!-- FOOTER -->
 <?php
-    include_once __DIR__ . '/templates/footer.php';
+    include_once __DIR__ . '../../../templates/footer.php';
 ?>
 <!-- FOOTER -->

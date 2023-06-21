@@ -7,8 +7,7 @@
     use Models\Ciudad;
     use Models\Eps;
     use Models\Rol;
-    use Models\Persona;
-
+   
     $db = new Database();
     $conn = $db -> getConnection('mysql'); //conexion con mysql
     //asiganmos una conexion activa para todos los modelos que se crearon 
@@ -17,6 +16,5 @@
     Ciudad :: setConn($conn);
     Eps :: setConn($conn);
     Rol :: setConn($conn);
-    Persona :: setConn($conn);
-
+   
 ?>

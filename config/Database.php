@@ -11,7 +11,7 @@
                     //'username' => 'campus',
                     //'username' => 'apolo',
                     //'database' => 'sgavapp',
-                    'database' => 'sistema_registro_campus',
+                    'database' => 'sistemacampus',
                     'password' => '123456789',
                     //'password' => 'campus2023', 
                     //'password' => '@pol0Adm1n$', 
@@ -30,6 +30,7 @@
                         \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci'
                     ]                
                 ),
+                
             "psql" => array(
                         'driver' => 'pgsql',
                         'host' => '172.16.48.210',

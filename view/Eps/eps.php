@@ -1,12 +1,12 @@
 <!-- HEADER -->
 <?php
-    include_once __DIR__ . '/templates/headerEps.php';
+    include_once __DIR__ . '../../../templates/headerEps.php';
 ?>
 <!-- HEADER -->
 
 <!-- SIDEBAR -->
 <?php
-    include_once __DIR__ . '/templates/sidebar.php';
+    include_once __DIR__ . '../../../templates/sidebar.php';
 ?>
 <!-- SIDEBAR -->
 
@@ -15,7 +15,7 @@
 
     <!-- NAVBAR -->
     <?php
-        include_once __DIR__ . '/templates/navbar.php';
+        include_once __DIR__ . '../../../templates/navbar.php';
     ?>
     <!-- NAVBAR -->
     <!-- NAVBAR DOS -->
@@ -44,7 +44,7 @@
             
             <section id="contenidoEps">
                 <?php 
-                    include_once __DIR__ . '/view/Eps/formEps.php';
+                    include_once __DIR__ . '/formEps.php';
                 ?>
             </section>
         </section>
@@ -58,7 +58,7 @@
                     <div class="card-body">
                 
                         <?php 
-                            include_once __DIR__ . '/view/Eps/listEps.php';
+                            include_once __DIR__ . '/listEps.php';
                         ?>
                     
                     </div>
@@ -74,6 +74,6 @@
 
 <!-- FOOTER -->
 <?php
-    include_once __DIR__ . '/templates/footer.php';
+    include_once __DIR__ . '../../../templates/footer.php';
 ?>
 <!-- FOOTER -->

@@ -133,7 +133,7 @@
 </div>
 
 <script>
-    let row;
+    var row;
     let idCountryBorrarCiu;
     $('#miTabla').DataTable().destroy();
     $(document).ready(function() {

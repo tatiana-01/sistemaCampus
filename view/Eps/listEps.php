@@ -1,5 +1,5 @@
 <?php
-    require_once 'app.php';
+    require_once '../../app.php';
 
     use Models\Eps;
 
@@ -109,7 +109,7 @@
 </div>
 
 <script>
-    let row;
+    var row;
     let idCountryBorrarEps;
     $('#miTabla').DataTable().destroy();
     $(document).ready(function() {
@@ -162,7 +162,7 @@
 
     //funcion para el DELETE, para borrar un dato de la base de datos
     function borrarDataDbEps() {
-        fetch('controllers/Eps/delete_data.php?id=' + idCountryBorrarEps, {
+        fetch('../../../controllers/Eps/delete_data.php?id=' + idCountryBorrarEps, {
                 method: 'DELETE'
             })
             .then(response => {
@@ -182,7 +182,7 @@
             headers : myHeaderEps,
             body : JSON.stringify(data)
         }
-        let res = await ( await fetch("controllers/Eps/update_data.php" ,config)).text();
+        let res = await ( await fetch("../../../controllers/Eps/update_data.php" ,config)).text();
         return res;
     }
 

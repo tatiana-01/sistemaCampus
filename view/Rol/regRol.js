@@ -24,6 +24,6 @@ const postData5 = async (data) => {
         body : JSON.stringify(data)
     }
     //enviamos los datos 
-    let response = await (await fetch("controllers/Rol/insert_data.php", config)).text();
+    let response = await (await fetch("../../../controllers/Rol/insert_data.php", config)).text();
     return response;
 }

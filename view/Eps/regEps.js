@@ -25,6 +25,6 @@ const postData4 = async (data) => {
         body : JSON.stringify(data)
     }
     //enviamos los datos 
-    let response = await (await fetch("controllers/Eps/insert_data.php", config)).text();
+    let response = await (await fetch("../../../controllers/Eps/insert_data.php", config)).text();
     return response;
 }

@@ -1,5 +1,5 @@
 <?php
-    require_once 'app.php';
+    require_once '../../app.php';
 
     use Models\Rol;
 
@@ -109,7 +109,7 @@
 </div>
 
 <script>
-    let row;
+    var row;
     let idCountryBorrarRol;
     $('#miTabla').DataTable().destroy();
     $(document).ready(function() {
@@ -162,7 +162,7 @@
 
     //funcion para el DELETE, para borrar un dato de la base de datos
     function borrarDataDbRol() {
-        fetch('controllers/Rol/delete_data.php?id=' + idCountryBorrarRol, {
+        fetch('../../../controllers/Rol/delete_data.php?id=' + idCountryBorrarRol, {
                 method: 'DELETE'
             })
             .then(response => {
@@ -182,7 +182,7 @@
             headers : myHeaderRol,
             body : JSON.stringify(data)
         }
-        let res = await ( await fetch("controllers/Rol/update_data.php" ,config)).text();
+        let res = await ( await fetch("../../../controllers/Rol/update_data.php" ,config)).text();
         return res;
     }
 

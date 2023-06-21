@@ -109,7 +109,7 @@
 </div>
 
 <script>
-    let row;
+    var row;
     let idCountryBorrar;
     $('#miTabla').DataTable().destroy();
     $(document).ready(function() {
