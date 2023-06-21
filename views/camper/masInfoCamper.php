@@ -147,8 +147,8 @@
                                     <p>'; echo $acudiente[0]['telefono_acudiente']; echo '</p>
                                 </div>
                                 <div class="d-flex mx-2 mt-1 mb-3">
-                                    <button class="btn btn-warning mx-auto" id="btnEditarAcudiente" data-bs-toggle="modal" data-bs-target="#editarAcudiente" type="submit">Editar Acudiente</button>
-                                    <button class="btn btn-danger mx-auto" data-bs-toggle="modal" data-bs-target="#eliminarAcudiente"type="submit">Eliminar Acudiente</button>
+                                    <button class="btn btn-warning mx-auto" id="btnEditarAcudiente" data-bs-toggle="modal" data-bs-target="#editarAcudiente" type="submit" data.idAcudiente="'; echo $acudiente[0]['id_acudiente']; echo'" >Editar Acudiente</button>
+                                    <button class="btn btn-danger mx-auto" data-bs-toggle="modal" id="btnEliminarAcudiente" data-bs-target="#eliminarAcudiente"type="submit">Eliminar Acudiente</button>
                                 </div>
                             </div>
                             ';
@@ -195,7 +195,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-2 col-sm-12 col-md-4 ">
-                                    <input type="text" placeholder="Numero de Documento" name="id_persona" class="form-control">
+                                    <input type="text" placeholder="Numero de Documento" name="id_persona" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="row  p-1">
@@ -293,7 +293,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="editarInfoAcademica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editarInfoAcademica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
             <div class="modal-dialog modal-lg" >
                 <div class="modal-content">
                     <div class="modal-header">
@@ -301,7 +301,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="editarAcademicaForm" action="">              
+                        <form id="editarAcademicaForm" data-idcamper='<?php echo $camper[0]['id_camper']; ?>' action="">              
                             <h5 class="mt-2">Informacion Academica</h5>
                             <div class="row  p-1">
                                 <label for="nombres" class="form-label">Nivel de conocimiento</label>
@@ -328,7 +328,7 @@
                                 </select>  
                             </div>
                             <div class="d-grid mx-auto mt-1">
-                                <button id='botonFormMatricula' class="btn btn-success mx-auto" type="submit">Guardar</button>
+                                <button id='botonFormMatricula' class="btn btn-success mx-auto" >Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -355,7 +355,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-2 col-sm-12 col-md-6 ">
-                                    <input type="text" placeholder="Numero de Documento Acudiente" name="id_acudiente" class="form-control">
+                                    <input type="text" placeholder="Numero de Documento Acudiente" name="id_acudiente" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="row  p-1">

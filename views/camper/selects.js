@@ -2,7 +2,6 @@ let selectPais=document.querySelector('#selectPais');
 let selectRegion=document.querySelector('#selectDpto');
 let selectCiudad=document.querySelector('#selectCiudad');
 let myHeadersSelect = new Headers({ "Content-Type": "application/json" })
-console.log(selectPais.value);
 innerSelectRegion(selectPais.value);
 innerSelectCiudad(selectRegion.value);
 
@@ -10,7 +9,6 @@ innerSelectCiudad(selectRegion.value);
 
 selectPais.addEventListener('change',async(e) =>{
     let valor= e.target.value;
-    console.log(valor);
     innerSelectRegion(valor);
 
 });
@@ -27,7 +25,6 @@ async function innerSelectRegion(valor){
         let regiones=JSON.parse(res);
         selectRegion.innerHTML='<option>Seleccione una region</option>';
         regiones.forEach( (region)=> {
-            console.log(region);
             const option = document.createElement('option');
             option.value = region.id_region;
             option.innerText = region.nombre_region;
@@ -51,7 +48,6 @@ async function innerSelectRegion(valor){
 
 selectRegion.addEventListener('change',async(e) =>{
     let valor= e.target.value;
-    console.log(valor);
     innerSelectCiudad(valor);
 
 });
@@ -68,7 +64,6 @@ async function innerSelectCiudad(valor){
         let ciudades=JSON.parse(res);
         selectCiudad.innerHTML='<option>Seleccione una ciudad</option>';
         ciudades.forEach( (ciudad)=> {
-            console.log(ciudad);
             const option = document.createElement('option');
             option.value = ciudad.id_ciudad;
             option.innerText = ciudad.ciudad_nombre;

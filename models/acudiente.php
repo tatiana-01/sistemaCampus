@@ -44,6 +44,17 @@
             return $acudiente;
         }
 
+        public function editData($data){
+            $sql = "UPDATE `acudiente` SET `tipo_id`=:tipo_id,`nombre_acudiente`=:nombre_acudiente, `parentesco`=:parentesco, `telefono_acudiente`=:telefono_acudiente WHERE `id_acudiente`=:id_acudiente";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':tipo_id', $data['tipo_id'], \PDO::PARAM_STR); 
+            $stmt->bindParam(':nombre_acudiente', $data['nombre_acudiente'], \PDO::PARAM_STR);
+            $stmt->bindParam(':parentesco', $data['parentesco'], \PDO::PARAM_STR); 
+            $stmt->bindParam(':telefono_acudiente', $data['telefono_acudiente'], \PDO::PARAM_STR); 
+            $stmt->bindParam(':id_acudiente', $data['id_acudiente'], \PDO::PARAM_STR); 
+            $stmt->execute();
+        }
+
         public static function setConn($connBd){
             self::$conn = $connBd;
         }

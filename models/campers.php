@@ -136,6 +136,14 @@
             return $nivel;
         }
 
+        public function editData($data){
+            $sql = "UPDATE `campers` SET `id_nivel_camper`=:id_nivel_camper WHERE `id_camper`=:id_camper";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id_nivel_camper', $data['id_nivel_camper'], \PDO::PARAM_INT); 
+            $stmt->bindParam(':id_camper', $data['id_camper'], \PDO::PARAM_INT); 
+            $stmt->execute();
+        }
+
         public static function setConn($connBd){
             self::$conn = $connBd;
         }

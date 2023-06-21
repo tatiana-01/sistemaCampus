@@ -168,7 +168,7 @@
                                 </select>
                             </div>
                             <div class="mb-2 col-sm-12 col-md-4 ">
-                                <input type="text" placeholder="Numero de Documento" name="id_persona" class="form-control">
+                                <input type="text" placeholder="Numero de Documento" name="id_persona" class="form-control" readonly>
                             </div>
                         </div>
                         <div class="row  p-1">

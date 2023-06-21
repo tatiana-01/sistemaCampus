@@ -42,6 +42,14 @@
             return $salon;
         }
 
+        public function editData($data){
+            $sql = "UPDATE `matricula_camper_rutas` SET `id_ruta`=:id_ruta WHERE `id_camper`=:id_camper";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id_ruta', $data['id_ruta'], \PDO::PARAM_INT); 
+            $stmt->bindParam(':id_camper', $data['id_camper'], \PDO::PARAM_INT); 
+            $stmt->execute();
+        }
+
         public static function setConn($connBd){
             self::$conn = $connBd;
         }

@@ -6,7 +6,7 @@ let btnEditarAcademica=document.querySelector('#btnEditarAcademica');
 let btnEditarAcudiente=document.querySelectorAll('#btnEditarAcudiente');
 let data=btnEditarCamper.parentElement.parentElement.querySelector('.card-text').querySelectorAll('p');
 let dataAcademica=btnEditarAcademica.parentElement.parentElement.querySelector('#infoCamper').querySelectorAll('p');
-// let btnEliminarContacto=document.querySelectorAll('#btnEliminarContacto');
+let btnEliminarAcudiente=document.querySelectorAll('#btnEliminarAcudiente');
 // let btnEliminarEmpleado=document.querySelector('#btnEliminarEmpleado');
 let selectPaisEditar=document.querySelector('#selectPais');
 let selectRegionEditar=document.querySelector('#selectDpto');
@@ -51,10 +51,8 @@ btnEditarAcademica.addEventListener(('click'),(e)=>{
 })
 
 
-
 btnEditarAcudiente.forEach((btn)=>{
     btn.addEventListener(('click'),(e)=>{
-        
         let dataAcudiente=btn.parentElement.parentElement.querySelector('#infoAcudiente').querySelectorAll('p');
         const inputsDataAcudiente = new FormData(frmEditarAcudiente);
         console.log(dataAcudiente);
@@ -71,5 +69,58 @@ btnEditarAcudiente.forEach((btn)=>{
             frmEditarAcudiente.elements[pair[0]].value = pair[1];
             console.log(pair[1]);
         }
+        frmEditarAcudiente.dataset.idacudiente=dataAcudiente[3].innerHTML;
+        console.log(frmEditarAcudiente.dataset.idacudiente);
     })
 })
+
+let myHeadersCamper = new Headers({ "Content-Type": "application/json" });
+frmEditar.addEventListener("submit", async (e) => { 
+    let dataEdit= Object.fromEntries(new FormData(frmEditar)); 
+    let configPersona = { 
+        method: "POST",
+        headers: myHeadersCamper,
+        body: JSON.stringify(dataEdit)
+    };
+    e.preventDefault();
+    let resPersona = await (await fetch("../../controllers/personas/editPersonas.php", configPersona)).text();
+    console.log(resPersona); 
+    location.reload();
+})
+
+console.log(frmEditarAcademica);
+
+frmEditarAcademica.addEventListener("submit", async (e) => { 
+    let dataEditAcademica= Object.fromEntries(new FormData(frmEditarAcademica)); 
+    dataEditAcademica.id_camper=frmEditarAcademica.dataset.idcamper;
+    let configCamper = { 
+        method: "POST",
+        headers: myHeadersCamper,
+        body: JSON.stringify(dataEditAcademica)
+    };
+    e.preventDefault();
+    let resCamper = await (await fetch("../../controllers/campers/editCamper.php", configCamper)).text(); 
+    let configMatricula = { 
+        method: "POST",
+        headers: myHeadersCamper,
+        body: JSON.stringify(dataEditAcademica)
+    };
+    let resMatricula = await (await fetch("../../controllers/matricula_camper_rutas/editMatricula.php", configMatricula)).text();
+   location.reload();
+})
+
+
+frmEditarAcudiente.addEventListener("submit", async (e) => { 
+    let dataEditAcudiente= Object.fromEntries(new FormData(frmEditarAcudiente)); 
+    dataEditAcudiente.id_acudiente=frmEditarAcudiente.dataset.idacudiente;
+    console.log(dataEditAcudiente);
+    let configAcudiente = { 
+        method: "POST",
+        headers: myHeadersCamper,
+        body: JSON.stringify(dataEditAcudiente)
+    };
+    e.preventDefault();
+    let resCamper = await (await fetch("../../controllers/acudiente/editAcudiente.php", configAcudiente)).text(); 
+    location.reload();
+})
+
