@@ -41,17 +41,26 @@
         </li>
     </ul>
     <hr>
-    <div class="content container mt-3" style="width: 78%">
+    <div class="content container mt-3 mx-auto" style="width: 78%">
         <h3 class="mb-3" >Registro de Acudiente Camper</h3>
         <hr>
         <form action="" id="camperAcudienteForm">
-        <select class="form-select" aria-label="Default select example" name="id_camper">
+        <select class="form-select mb-4" aria-label="Default select example" name="id_camper">
             <option selected>Seleccione un camper</option>
             <?php 
             $campers=$objCampers->loadAllData();
             foreach ($campers as $camper) {
                 $personas=$objPersonas->loadDataById($camper['id_persona']);
-                echo "<option value='$camper[id_camper]'>".$personas[0]['persona_nombre'].' '. $personas[0]['persona_apellido'] ."</option>";
+                if($_GET['idCamper']){
+                    $idCamper=$_GET['idCamper']; 
+                    if ($idCamper==$camper['id_camper']) {
+                        echo "<option selected value='$camper[id_camper]'>".$personas[0]['persona_nombre'].' '. $personas[0]['persona_apellido'] ."</option>";   
+                    }else{
+                        echo "<option value='$camper[id_camper]'>".$personas[0]['persona_nombre'].' '. $personas[0]['persona_apellido'] ."</option>";
+                    }
+                }else{
+                    echo "<option value='$camper[id_camper]'>".$personas[0]['persona_nombre'].' '. $personas[0]['persona_apellido'] ."</option>";
+                }
             }
             ?>
         </select>

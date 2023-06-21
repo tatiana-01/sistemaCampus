@@ -2,8 +2,10 @@
     include_once('../../app.php');
     use Models\Campers;
     use Models\Ruta;
+    use Models\Personas;
     $objCampers = new Campers();
     $objRutas = new Ruta();
+    $objPersonas = new Personas();
 ?>
 <!-- HEADER -->
 <?php
@@ -45,13 +47,24 @@ error_reporting(E_ALL);
         </li>
     </ul>
     <hr>
-    <div class="content container mt-3" style="width: 78%">
+    <div class="content container mt-3 mx-auto" style="width: 78%">
          <!-- FORMULARIO -->
             <h3 class="mb-3" >Registro de Campers</h3>
             <hr>
             <form id="camperPersonaForm" action="">
                 <div class="row  p-1">
-                    <div class="mb-2 col-sm-12 col-md-6">
+                    <div class="mb-2 col-sm-12 col-md-4">
+                        <select class="form-select" aria-label="Default select example" name="id_rol">
+                            <option selected>Seleccione un Rol</option>
+                            <?php 
+                                $roles=$objPersonas->loadAllDataRol();
+                                foreach ($roles as $rol) {
+                                    echo "<option value='$rol[id_rol]'>".$rol['name_rol'] ."</option>" ; 
+                                };
+                            ?>
+                        </select>
+                    </div>
+                    <div class="mb-2 col-sm-12 col-md-4">
                         <select class="form-select" aria-label="Default select example" name="tipo_id">
                             <option selected>Tipo de Documento</option>
                             <option value="TI">Tarjeta de identidad</option>
@@ -59,7 +72,7 @@ error_reporting(E_ALL);
                             <option value="CE">Cedula de extranjeria</option>
                         </select>
                     </div>
-                    <div class="mb-2 col-sm-12 col-md-6 ">
+                    <div class="mb-2 col-sm-12 col-md-4 ">
                         <input type="text" placeholder="Numero de Documento" name="id_persona" class="form-control">
                     </div>
                 </div>

@@ -9,7 +9,6 @@ console.log(myformPersonaEmpleado);
 myformPersonaEmpleado.addEventListener("submit", async (e) => { 
     e.preventDefault();
     let dataPersona = Object.fromEntries(new FormData(myformPersonaEmpleado));
-    dataPersona.id_rol=3;
     dataPersona.foto_persona=dataPersona.foto_persona.name;
     console.log(dataPersona);
     let configPersonaEmpleado = { 

@@ -1,0 +1,21 @@
+.contenido{
+    height: 33rem;
+    overflow-y: scroll;
+}
+
+.acudientes{
+    height: 32rem;
+    overflow-y: scroll;
+}
+
+.card-img-top{
+    
+    margin-top: 1rem;
+    height: 15rem;
+    object-fit:scale-down;
+}
+
+.contactos{
+    height: 50rem;
+    overflow-y: scroll;
+}

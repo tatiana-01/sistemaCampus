@@ -11,7 +11,6 @@ let btnFormCamper=document.querySelector('#botonFormCamper')
 myformPersonaCamper.addEventListener("submit", async (e) => { 
     e.preventDefault();
     let dataPersona = Object.fromEntries(new FormData(myformPersonaCamper));
-    dataPersona.id_rol=1;
     dataPersona.foto_persona=dataPersona.foto_persona.name;
     console.log(dataPersona);
     let configPersonaCamper = { 

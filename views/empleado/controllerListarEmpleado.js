@@ -9,23 +9,24 @@ let btnEliminarEmpleado=document.querySelector('#btnEliminarEmpleado');
 let selectPaisEditar=document.querySelector('#selectPais');
 let selectRegionEditar=document.querySelector('#selectDpto');
 let selectCiudadEditar=document.querySelector('#selectCiudad');
-selectPaisEditar.value=data[17].dataset.pais;
+selectPaisEditar.value=data[19].dataset.pais;
 innerSelectRegion(selectPaisEditar.value);
 
 
 btnEditarEmpleado.addEventListener(('click'),(e)=>{
     const inputsData = new FormData(frmEditar);
-    inputsData.set("persona_nombre",data[1].innerHTML);
-    inputsData.set("persona_apellido",data[3].innerHTML);
-    inputsData.set("tipo_id",data[5].innerHTML);
-    inputsData.set("id_persona",data[7].innerHTML);
-    inputsData.set("fecha_nacimiento",data[9].innerHTML);
-    inputsData.set("email",data[11].innerHTML);
-    inputsData.set("persona_direccion",data[13].innerHTML);
-    inputsData.set("persona_telefono",data[15].innerHTML);
-    inputsData.set("id_ciudad",data[17].id);
-    inputsData.set("id_eps",data[19].id);
-    inputsData.set("id_arl",data[21].id);
+    inputsData.set("id_rol",data[1].id);
+    inputsData.set("persona_nombre",data[3].innerHTML);
+    inputsData.set("persona_apellido",data[5].innerHTML);
+    inputsData.set("tipo_id",data[7].innerHTML);
+    inputsData.set("id_persona",data[9].innerHTML);
+    inputsData.set("fecha_nacimiento",data[11].innerHTML);
+    inputsData.set("email",data[13].innerHTML);
+    inputsData.set("persona_direccion",data[15].innerHTML);
+    inputsData.set("persona_telefono",data[17].innerHTML);
+    inputsData.set("id_ciudad",data[19].id);
+    inputsData.set("id_eps",data[21].id);
+    inputsData.set("id_arl",data[23].id);
     for (var pair of inputsData.entries()) {
         console.log(pair);
         console.log( pair[1]);

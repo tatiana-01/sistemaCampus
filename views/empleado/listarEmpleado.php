@@ -45,7 +45,7 @@ error_reporting(E_ALL);
         </li>
     </ul>
     <hr>
-    <div class="content" style="width: 90%">
+    <div class="content mx-auto" style="width: 90%">
          <!-- TABLA CAMPERS -->
          <h3>Listado Empleados</h3>
                 <table class="table table-bordered display dataTable" id="misEmpleados">

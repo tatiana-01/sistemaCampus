@@ -35,7 +35,7 @@ async function innerSelectRegion(valor){
         });
         
         try {
-            selectRegionEditar.value=data[17].dataset.region;
+            selectRegionEditar.value=data[19].dataset.region;
             innerSelectCiudad(selectRegionEditar.value);  
         } catch (error) {
             

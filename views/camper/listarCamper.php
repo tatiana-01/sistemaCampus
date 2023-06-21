@@ -42,7 +42,7 @@
         </li>
     </ul>
     <hr>
-    <div class="content" style="width: 90%">
+    <div class="content mx-auto" style="width: 90%">
          <!-- TABLA CAMPERS -->
          <h3>Listado Campers</h3>
                 <table class="table table-bordered display dataTable" id="misCampers">
@@ -82,7 +82,7 @@
 <!-- NAVBAR -->
 <link rel="stylesheet" href="../../js/DataTables/datatables.min.css">
 <script src="../../js/DataTables/datatables.min.js"></script>
-<script src="controllerListarCamper.js"></script>
+<script src="tablaCamper.js"></script>
 <!-- FOOTER -->
 <?php
     include_once __DIR__ . '/../../templates/footer.php';

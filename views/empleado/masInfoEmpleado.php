@@ -47,7 +47,7 @@
         </li>
     </ul>
     <hr>
-    <div class="content" style="width: 90%">
+    <div class="content mx-auto" style="width: 90%">
         <!-- INFO CAMPERS -->
         <div class="row">
             <div class="col-12 col-md-6 ">
@@ -60,35 +60,37 @@
                     $empleado=$objEmpleados->loadDataByIdPersona($idPersona);
                     $arl=$objEmpleados->loadDataArlById($empleado[0]['id_arl']);
                     $contactos=$objContactos->loadDataByIdEmpleado($empleado[0]['id_empleado']);
-                    $region=$objEmpleados->loadDataRegionById($persona[0]['id_ciudad']);
-                    $pais=$objEmpleados->loadDataPaisById($region[0]['id_pais']);
-                    
+                    $region=$objEmpleados->loadDataRegionById($ciudad[0]['id_region']);
+                    $pais=$objEmpleados->loadDataPaisById($region[0]['id_pais']);    
+                    $rol=$objPersonas->loadDataRolById($persona[0]['id_rol'])                
                 ?>
                 <div class="card bg-secondary-subtle" id="infoPersonas" >
                     <img src="../../images/<?php echo $persona[0]['foto_persona'] ?>" class="card-img-top" >
                     <div class="card-body">
-                        <div class="card-text">
-                            <p class="fw-bold">Nombres:</p>
+                        <div class="card-text contenido">
+                            <p class="fw-bold m-0">Rol:</p>
+                            <p id='<?php echo $persona[0]['id_rol'];?>'><?php echo $rol[0]['name_rol'];?></p>
+                            <p class="fw-bold m-0">Nombres:</p>
                             <p><?php echo $persona[0]['persona_nombre'];?></p>
-                            <p class="fw-bold">Apellidos:</p>
+                            <p class="fw-bold m-0">Apellidos:</p>
                             <p><?php echo $persona[0]['persona_apellido'];?></p>
-                            <p class="fw-bold">Tipo ID:</p>
+                            <p class="fw-bold m-0">Tipo ID:</p>
                             <p><?php echo $persona[0]['tipo_id'];?></p>
-                            <p class="fw-bold">ID:</p>
+                            <p class="fw-bold m-0">ID:</p>
                             <p><?php echo $idPersona ?></p>
-                            <p class="fw-bold">Fecha de nacimiento:</p>
+                            <p class="fw-bold m-0">Fecha de nacimiento:</p>
                             <p><?php echo $persona[0]['fecha_nacimiento']?></p>
-                            <p class="fw-bold">Email:</p>
+                            <p class="fw-bold m-0">Email:</p>
                             <p><?php echo $persona[0]['email']?></p>
-                            <p class="fw-bold">Direccion:</p>
+                            <p class="fw-bold m-0">Direccion:</p>
                             <p><?php echo $persona[0]['persona_direccion']?></p>
-                            <p class="fw-bold">Telefono:</p>
+                            <p class="fw-bold m-0">Telefono:</p>
                             <p><?php echo $persona[0]['persona_telefono']?></p>
-                            <p class="fw-bold">Ciudad:</p>
+                            <p class="fw-bold m-0">Ciudad:</p>
                             <p id='<?php echo $persona[0]['id_ciudad']?>' data-region='<?php echo $region[0]['id_region']?>' data-pais='<?php echo $pais[0]['id_pais']?>'><?php echo $ciudad[0]['ciudad_nombre']?></p>
-                            <p class="fw-bold">EPS:</p>       
+                            <p class="fw-bold m-0">EPS:</p>       
                             <p id='<?php echo $persona[0]['id_eps']?>'><?php echo $eps[0]['eps_nombre']?></p>
-                            <p class="fw-bold">ARL:</p>       
+                            <p class="fw-bold m-0">ARL:</p>       
                             <p id='<?php echo $empleado[0]['id_arl']?>'><?php echo $arl[0]['arl_nombre']?></p>                     
                         </div>
                         <div class="d-flex mx-auto mt-1">
@@ -98,33 +100,36 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 ">
                 <h3>Informacion de Contactos</h3>
                 <hr>
-                <?php 
-                foreach ($contactos as $contacto) {
-                    echo '
-                    <div class="card bg-secondary-subtle mb-4" id="infoAcudiente">
-                        <div id="infoContacto" class="mx-2">
-                            <p class="fw-bold mt-2">Tipo ID:</p>
-                            <p>'; echo $contacto['tipo_id']; echo '</p>
-                            <p class="fw-bold">ID:</p>
-                            <p>'; echo $contacto['id_contacto_empleado']; echo '</p>
-                            <p class="fw-bold">Nombre:</p>
-                            <p>'; echo $contacto['nombre_contacto_empleado']; echo '</p>
-                            <p class="fw-bold">Tipo Contacto:</p>
-                            <p>'; echo $contacto['tipo_locacion_contacto']; echo '</p>
-                            <p class="fw-bold">Telefono:</p>
-                            <p>'; echo $contacto['telefono_contacto_empleado']; echo '</p>
+                <div class="contactos">
+                    <?php 
+                    foreach ($contactos as $contacto) {
+                        echo '
+                        <div class="card bg-secondary-subtle mb-4" id="infoAcudiente">
+                            <div id="infoContacto" class="mx-2">
+                                <p class="fw-bold m-0 mt-2">Tipo ID:</p>
+                                <p>'; echo $contacto['tipo_id']; echo '</p>
+                                <p class="fw-bold m-0">ID:</p>
+                                <p>'; echo $contacto['id_contacto_empleado']; echo '</p>
+                                <p class="fw-bold m-0">Nombre:</p>
+                                <p>'; echo $contacto['nombre_contacto_empleado']; echo '</p>
+                                <p class="fw-bold m-0">Tipo Contacto:</p>
+                                <p>'; echo $contacto['tipo_locacion_contacto']; echo '</p>
+                                <p class="fw-bold m-0">Telefono:</p>
+                                <p>'; echo $contacto['telefono_contacto_empleado']; echo '</p>
+                            </div>
+                            <div class="d-flex mx-2 mt-1 mb-3">
+                                <button id="btnEditarContacto" class="btn btn-warning mx-auto" data-bs-toggle="modal" data-bs-target="#editarContacto" data-idEmpleado="'; echo $empleado[0]['id_empleado']; echo '">Editar Contacto</button>
+                                <button id="btnEliminarContacto" class="btn btn-danger mx-auto" data-idcontacto="'; echo $contacto['id_contacto_empleado']; echo '" data-nombre="'; echo $contacto['nombre_contacto_empleado']; echo '" data-idpersona="'; echo $idPersona; echo '" data-bs-toggle="modal" data-bs-target="#eliminarContacto">Eliminar Contacto</button>
+                            </div>
                         </div>
-                        <div class="d-flex mx-2 mt-1 mb-3">
-                            <button id="btnEditarContacto" class="btn btn-warning mx-auto" data-bs-toggle="modal" data-bs-target="#editarContacto" data-idEmpleado="'; echo $empleado[0]['id_empleado']; echo '">Editar Contacto</button>
-                            <button id="btnEliminarContacto" class="btn btn-danger mx-auto" data-idcontacto="'; echo $contacto['id_contacto_empleado']; echo '" data-nombre="'; echo $contacto['nombre_contacto_empleado']; echo '" data-idpersona="'; echo $idPersona; echo '" data-bs-toggle="modal" data-bs-target="#eliminarContacto">Eliminar Contacto</button>
-                        </div>
-                    </div>
-                    ';
-                }
-                ?>
+                        ';
+                    }
+                    ?>
+                </div>
+                
                 <div class="d-flex mx-auto mt-1">
                     <a class="btn btn-success mx-auto" <?php echo "href='contactoEmpleado.php?idEmpleado={$empleado[0]['id_empleado']}'"?> >Añadir Contacto</a>
                 </div>
@@ -143,7 +148,18 @@
                     <div class="modal-body">
                     <form id="editarEmpleadoForm" <?php echo 'data-idempleado="'; echo $empleado[0]['id_empleado']; echo '"';?> action="">
                         <div class="row  p-1">
-                            <div class="mb-2 col-sm-12 col-md-6">
+                            <div class="mb-2 col-sm-12 col-md-4">
+                                <select class="form-select" aria-label="Default select example" name="id_rol">
+                                    <option selected>Seleccione un Rol</option>
+                                    <?php 
+                                        $roles=$objPersonas->loadAllDataRol();
+                                        foreach ($roles as $rol) {
+                                            echo "<option value='$rol[id_rol]'>".$rol['name_rol'] ."</option>" ; 
+                                        };
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="mb-2 col-sm-12 col-md-4">
                                 <select class="form-select" aria-label="Default select example" name="tipo_id">
                                     <option selected>Tipo de Documento</option>
                                     <option value="TI">Tarjeta de identidad</option>
@@ -151,7 +167,7 @@
                                     <option value="CE">Cedula de extranjeria</option>
                                 </select>
                             </div>
-                            <div class="mb-2 col-sm-12 col-md-6 ">
+                            <div class="mb-2 col-sm-12 col-md-4 ">
                                 <input type="text" placeholder="Numero de Documento" name="id_persona" class="form-control">
                             </div>
                         </div>
@@ -352,6 +368,7 @@
 </section>
 <!-- NAVBAR -->
 <link rel="stylesheet" href="../../js/DataTables/datatables.min.css">
+<link rel="stylesheet" href="../../css/masInfo.css">
 <script src="../../js/DataTables/datatables.min.js"></script>
 <script src="../camper/selects.js" ></script>
 <script src="controllerListarEmpleado.js"></script>

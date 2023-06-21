@@ -42,11 +42,11 @@
         </li>
     </ul>
     <hr>
-    <div class="content container mt-3" style="width: 78%">
+    <div class="content container mt-3 mx-auto" style="width: 78%">
         <h3 class="mb-3" >Registro de Contacto Empleado</h3>
         <hr>
         <form action="" id="contactoEmpleadoForm">
-        <select class="form-select" aria-label="Default select example" name="id_empleado">
+        <select class="form-select mb-4" aria-label="Default select example" name="id_empleado">
             <option selected>Seleccione un empleado</option>
             <?php 
             $empleados=$objEmpleado->loadAllData();
