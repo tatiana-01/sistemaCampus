@@ -5,7 +5,7 @@
 
     $objCiudad = new Ciudad();
     $datosCiudad = $objCiudad->loadAllData();
-
+    
 ?>
 
 <section>
@@ -105,7 +105,10 @@
 
                                             <label for="id_region" class="form-label">Region:</label>
                                             <select class="form-select id_region" name="id_region" id="id_region">
-                                                <option selected>Seleccione una region</option>
+                                                <option selected="">Seleccione una region</option>
+                                                <?php foreach ($datosRegion as $itemRegion) { ?>
+                                                    <option value="<?php echo $itemRegion['id_region']; ?>"><?php echo $itemRegion['nombre_region']; ?></option>
+                                                <?php } ?>
                                             </select>
 
                                         </div>
@@ -135,6 +138,8 @@
 <script>
     var row;
     let idCountryBorrarCiu;
+    let datosRegiones = [];
+    let regionDatos = [];
     $('#miTabla').DataTable().destroy();
     $(document).ready(function() {
         let tabla = $('#misCiudad').DataTable();
@@ -154,6 +159,16 @@
             const inputsData = new FormData(frmCiu);
             row = tabla.row($(this).parents('tr'));
             let fila = tabla.row($(this).closest('tr')).data();
+ 
+            getRegion()
+                .then(resp => {
+                    //console.log(resp);
+                    datosRegiones = JSON.parse(resp);
+                    console.log(fila[1]);
+                    //console.log(datosRegiones);
+                    enviarIdPais(datosRegiones, fila[1]);
+                });
+            
             idCountryBorrarCiu = fila[0]; // Obtener el valor de la columna 'Nombre'
             inputsData.set("id_ciudad",fila[0]);
             inputsData.set("id_region",fila[1]);
@@ -168,6 +183,36 @@
             // Abrir el modal y mostrar el nombre del usuario
         });
     });
+
+    //funcion para enviar el id del pais al formulario
+    const enviarIdPais = (datoReg, idReg) => {
+        const frmCiu = document.querySelector('#frmUpdateDataCiu');
+        let idRegions = datoReg.find((itemRe) => itemRe.id_region == idReg);
+        let idPais = idRegions.id_pais;
+        console.log(idPais);
+        frmCiu.elements["id_pais"].value = idPais;
+    }
+
+    //Modulo para el metodo GET para traer los datos de las regiones 
+    const getRegion = async () => {
+
+        try {
+
+            //definimos el encabezado del metodo
+            let myheadersRegions = new Headers({"Content-Type" : "application/json; charset:utf8"});
+
+            let config = {
+                method : "GET",
+                headers : myheadersRegions
+            }
+            let respuesta = await (await fetch("controllers/Region/select_data.php", config)).text();
+            //console.log(respuesta);
+            return respuesta;
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     function editarDataCiu(){
         const frm = document.querySelector('#frmUpdateDataCiu');
