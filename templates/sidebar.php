@@ -37,14 +37,14 @@
         <li>
             <a href="#"><i class='bx bxs-first-aid icon'></i>EPS<i class='bx bx-chevron-right icon-right'></i></a>
             <ul class="side-dropdown">
-                <li><a href="/view/Eps/eps.php"><i class='bx bxs-user-plus icon'></i>Registrar-Listar</a></li>
+                <li><a href="/views/Eps/eps.php"><i class='bx bxs-user-plus icon'></i>Registrar-Listar</a></li>
                 <!--<li><a href="#"><i class='bx bx-table icon'></i>Listar</a></li>-->
             </ul>
         </li>
         <li>
             <a href="#"><i class='bx bxs-user-detail icon'></i>Rol Persona<i class='bx bx-chevron-right icon-right'></i></a>
             <ul class="side-dropdown">
-                <li><a href="/view/Rol/rol.php" ><i class='bx bxs-user-plus icon'></i>Registrar-Listar</a></li>
+                <li><a href="/views/Rol/rol.php" ><i class='bx bxs-user-plus icon'></i>Registrar-Listar</a></li>
                 <!--<li><a href="#"><i class='bx bx-table icon'></i>Listar</a></li>-->
             </ul>
         </li>

@@ -53,19 +53,19 @@
             
             <section id="contenidoPais">
                 <?php 
-                    include_once __DIR__ . '/view/Country/formCountry.php';
+                    include_once __DIR__ . '/views/Country/formCountry.php';
                 ?>
             </section>
 
             <section id="contenidoRegion">
                 <?php 
-                    include_once __DIR__ . '/view/Region/formRegion.php';
+                    include_once __DIR__ . '/views/Region/formRegion.php';
                 ?>
             </section>
 
             <section id="contenidoCiudad">
                 <?php 
-                    include_once __DIR__ . '/view/City/formCity.php';
+                    include_once __DIR__ . '/views/City/formCity.php';
                 ?>
             </section>
         </section>
@@ -79,7 +79,7 @@
                     <div class="card-body">
                 
                         <?php 
-                            include_once __DIR__ . '/view/Country/listCountry.php';
+                            include_once __DIR__ . '/views/Country/listCountry.php';
                         ?>
                     
                     </div>
@@ -92,7 +92,7 @@
                     <div class="card-body">
                 
                         <?php 
-                            include_once __DIR__ . '/view/Region/listRegion.php';
+                            include_once __DIR__ . '/views/Region/listRegion.php';
                         ?>
                     
                     </div>
@@ -105,7 +105,7 @@
                     <div class="card-body">
                 
                         <?php 
-                            include_once __DIR__ . '/view/City/listCity.php';
+                            include_once __DIR__ . '/views/City/listCity.php';
                         ?>
                     
                     </div>
