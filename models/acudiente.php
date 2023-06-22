@@ -55,6 +55,14 @@
             $stmt->execute();
         }
 
+        public function deleteDataById($id){
+            $sql = "DELETE FROM acudiente where id_acudiente = :id";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            echo $stmt->execute();
+            
+        }
+
         public static function setConn($connBd){
             self::$conn = $connBd;
         }

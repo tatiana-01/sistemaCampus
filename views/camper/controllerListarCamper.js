@@ -7,7 +7,7 @@ let btnEditarAcudiente=document.querySelectorAll('#btnEditarAcudiente');
 let data=btnEditarCamper.parentElement.parentElement.querySelector('.card-text').querySelectorAll('p');
 let dataAcademica=btnEditarAcademica.parentElement.parentElement.querySelector('#infoCamper').querySelectorAll('p');
 let btnEliminarAcudiente=document.querySelectorAll('#btnEliminarAcudiente');
-// let btnEliminarEmpleado=document.querySelector('#btnEliminarEmpleado');
+let btnEliminarCamper=document.querySelector('#btnEliminarCamper');
 let selectPaisEditar=document.querySelector('#selectPais');
 let selectRegionEditar=document.querySelector('#selectDpto');
 let selectCiudadEditar=document.querySelector('#selectCiudad');
@@ -123,4 +123,31 @@ frmEditarAcudiente.addEventListener("submit", async (e) => {
     let resCamper = await (await fetch("../../controllers/acudiente/editAcudiente.php", configAcudiente)).text(); 
     location.reload();
 })
+let idAcudientes=[];
+btnEliminarAcudiente.forEach((btnDelete)=>{
+    btnDelete.addEventListener('click',(e)=>{
+        document.querySelector('#infoEliminarAcudiente').innerHTML = /*html*/'Desea eliminar el acudiente: <b>' + btnDelete.dataset.nombreacudiente + '</b> con ID: ' + btnDelete.dataset.idacudiente;
+        let btnEliminarDef=document.querySelector('#borrarDefAcudiente');
+        btnEliminarDef.setAttribute("href",`../../controllers/camper_acudiente/deleteCamperAcudiente.php?idAcudiente=${btnDelete.dataset.idacudiente}&idPersona=${data[9].innerHTML}`);
+    })
+    idAcudientes.push(btnDelete.dataset.idacudiente);
+})
 
+btnEliminarCamper.addEventListener('click',(e)=>{
+    document.querySelector('#infoEliminarCamper').innerHTML = /*html*/'Desea eliminar el camper: <b>' + data[3].innerHTML + ' '+ data[5].innerHTML + '</b> con ID de camper: ' + frmEditarAcademica.dataset.idcamper;
+    let btnEliminarCamperDef=document.querySelector('#borrarDefCamper');
+    if(btnEliminarAcudiente.length!=0){
+        console.log('is');
+        btnEliminarCamperDef.setAttribute("href",`../../controllers/camper_acudiente/deleteCamperAcudiente.php?idCamper=${frmEditarAcademica.dataset.idcamper}&idAcudientes=${idAcudientes}&idPersona=${data[9].innerHTML}`);
+    }else{
+        console.log('no');
+        btnEliminarCamperDef.setAttribute("href",`../../controllers/matricula_camper_rutas/deleteMatricula.php?idCamper=${frmEditarAcademica.dataset.idcamper}&idPersona=${data[9].innerHTML}`);
+    }
+    
+})
+
+if(btnEliminarAcudiente.length!=0){
+    document.querySelector('.acudientes').classList.add('d-block');
+}else{
+    document.querySelector('.acudientes').classList.add('d-none');
+}

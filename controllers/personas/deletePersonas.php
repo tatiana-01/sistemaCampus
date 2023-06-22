@@ -3,5 +3,10 @@
     use Models\Personas;
     $miPersonas = new Personas();
     $miPersonas->deleteData($_GET['idPersona']); 
-    header('location:../../views/empleado/listarEmpleado.php');
+    if($_GET['idCamper']){
+        header('location:../../views/camper/listarCamper.php');
+    }else{
+        header('location:../../views/empleado/listarEmpleado.php');
+    }
+  
 ?>

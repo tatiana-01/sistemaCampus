@@ -144,6 +144,13 @@
             $stmt->execute();
         }
 
+        public function deleteData($id){
+            $sql = "DELETE FROM campers where id_camper = :id";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }
+
         public static function setConn($connBd){
             self::$conn = $connBd;
         }

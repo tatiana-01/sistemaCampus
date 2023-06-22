@@ -40,6 +40,13 @@
             return $acudiente;
         }
 
+        public function deleteDataByIdAcudiente($id){
+            $sql = "DELETE FROM camper_acudiente where id_acudiente = :id";
+            $stmt= self::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }
+
         public static function setConn($connBd){
             self::$conn = $connBd;
         }

@@ -102,7 +102,7 @@
                         </div>
                         <div class="d-flex mx-auto mt-1">
                             <button class="btn btn-warning mx-auto" id="btnEditarCamperPersona" data-bs-toggle="modal" data-bs-target="#editarInfoBasica" type="submit" type="submit">Editar Camper</button>
-                            <button class="btn btn-danger mx-auto" data-bs-toggle="modal" data-bs-target="#eliminarCamper" type="submit">Eliminar Camper</button>
+                            <button class="btn btn-danger mx-auto" data-bs-toggle="modal" data-bs-target="#eliminarCamper" id="btnEliminarCamper" type="submit">Eliminar Camper</button>
                         </div>
                     </div>
                 </div>
@@ -147,8 +147,8 @@
                                     <p>'; echo $acudiente[0]['telefono_acudiente']; echo '</p>
                                 </div>
                                 <div class="d-flex mx-2 mt-1 mb-3">
-                                    <button class="btn btn-warning mx-auto" id="btnEditarAcudiente" data-bs-toggle="modal" data-bs-target="#editarAcudiente" type="submit" data.idAcudiente="'; echo $acudiente[0]['id_acudiente']; echo'" >Editar Acudiente</button>
-                                    <button class="btn btn-danger mx-auto" data-bs-toggle="modal" id="btnEliminarAcudiente" data-bs-target="#eliminarAcudiente"type="submit">Eliminar Acudiente</button>
+                                    <button class="btn btn-warning mx-auto" id="btnEditarAcudiente" data-bs-toggle="modal" data-bs-target="#editarAcudiente" type="submit" >Editar Acudiente</button>
+                                    <button class="btn btn-danger mx-auto" data-bs-toggle="modal" id="btnEliminarAcudiente" data-bs-target="#eliminarAcudiente"type="submit" data-idacudiente="'; echo $acudiente[0]['id_acudiente']; echo'" data-nombreacudiente="'; echo $acudiente[0]['nombre_acudiente']; echo'">Eliminar Acudiente</button>
                                 </div>
                             </div>
                             ';

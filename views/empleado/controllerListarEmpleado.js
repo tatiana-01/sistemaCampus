@@ -105,13 +105,13 @@ frmEditar.addEventListener("submit", async (e) => {
 
 
 btnEliminarEmpleado.addEventListener('click',(e)=>{
-    document.querySelector('#infoEliminarEmpleado').innerHTML = /*html*/'Desea eliminar el empleado: <b>' + data[1].innerHTML + ' '+ data[3].innerHTML + '</b> con ID de empleado: ' + frmEditar.dataset.idempleado;
+    document.querySelector('#infoEliminarEmpleado').innerHTML = /*html*/'Desea eliminar el empleado: <b>' + data[3].innerHTML + ' '+ data[5].innerHTML + '</b> con ID de empleado: ' + frmEditar.dataset.idempleado;
     let btnEliminarEmpleadoDef=document.querySelector('#borrarDefEmpleado');
     if(btnEliminarContacto.length!=0){
         console.log('is');
-        btnEliminarEmpleadoDef.setAttribute("href",`../../controllers/contacto_empleado/deleteContactoByEmpleado.php?idEmpleado=${frmEditar.dataset.idempleado}&idPersona=${data[7].innerHTML}`);
+        btnEliminarEmpleadoDef.setAttribute("href",`../../controllers/contacto_empleado/deleteContactoByEmpleado.php?idEmpleado=${frmEditar.dataset.idempleado}&idPersona=${data[9].innerHTML}`);
     }else{
-        btnEliminarEmpleadoDef.setAttribute("href",`../../controllers/empleado/deleteEmpleado.php?idEmpleado=${frmEditar.dataset.idempleado}&idPersona=${data[7].innerHTML}`);
+        btnEliminarEmpleadoDef.setAttribute("href",`../../controllers/empleado/deleteEmpleado.php?idEmpleado=${frmEditar.dataset.idempleado}&idPersona=${data[9].innerHTML}`);
     }
     
 })
