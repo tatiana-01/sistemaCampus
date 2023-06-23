@@ -28,20 +28,22 @@
 
     <!-- MAIN --> 
     <!-- lo que va a cambiar en las paginas -->
-    <main>
-
-    <ul class="nav nav-underline navCamper">
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="camper.php">Registro Campers</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../acudiente/acudiente.php">Acudiente Campers</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="listarCamper.php">Listado Campers</a>
-        </li>
-    </ul>
-    <hr>
+    <main class="m-0">
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle navbar ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img class="logo" src="/images/logoCampers.png" alt="ROL"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="camper.php">Registro Campers</a>
+                    <a class="nav-link" href="../acudiente/acudiente.php">Acudiente Campers</a>
+                    <a class="nav-link" href="listarCamper.php">Listado Campers</a>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="content mx-auto" style="width: 90%">
          <!-- TABLA CAMPERS -->
          <h3>Listado Campers</h3>

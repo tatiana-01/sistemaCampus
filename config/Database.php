@@ -8,7 +8,7 @@
                     'host' => 'localhost',
                     //'host' => '172.16.48.230',
                     //'username' => 'root', 
-                    'username' => 'campus',
+                    'username' => 'root',
                     //'username' => 'apolo'
                     'database' => 'sistemacampus',
                     'password' => '',

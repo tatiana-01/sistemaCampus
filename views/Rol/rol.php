@@ -19,7 +19,7 @@
     ?>
     <!-- NAVBAR -->
     <!-- NAVBAR DOS -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img class="logo" src="/images/logoRol.png" alt="ROL"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,6 @@
     <main>
 
         <section id="registroRol">
-            <h1 class="title text-center">**** SISTEMA DE REGISTRO PARA LOS DIFERENTES TIPOS DE COLABORADORES PROFESIONALES QUE SE ENCUENTRAN EN CAMPUS LANDS ****</h1>
             
             <section id="contenidoRol">
                 <?php 

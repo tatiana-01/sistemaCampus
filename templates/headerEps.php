@@ -13,7 +13,7 @@
 	<script src="/js/DataTables/datatables.min.js"></script>
 	<script src="/js/mainMenu.js" async></script>
 	<script src="/js/mainMenuEps.js" defer></script>
-    <script src="/view/Eps/regEps.js" defer></script>
+    <script src="/views/Eps/regEps.js" defer></script>
 	<title>Campus Lands</title>
 </head>
 <body>

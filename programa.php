@@ -23,7 +23,7 @@
     <!-- lo que va a cambiar en las paginas -->
     <main>
 
-        <h1 class="title text-center ">SISTEMA DE REGISTRO DE CAMPUS LANDS</h1>
+        <h1 class="title text-center ">PROGRAMA ACADEMICO</h1>
         <!--<ul class="breadcrumbs">
 				<li><a href="#">Home</a></li>
 				<li class="divider">/</li>
@@ -33,18 +33,18 @@
         <div class="container d-flex justify-content-evenly mt-5 flex-wrap">
             <div class="card mt-3 d-flex flex-column-reverse" style="width: 18rem;">
                 
-                    <img src="images/campers1.png" style="width: 98%;" class="mb-3" >
+                    <img src="images/rol.png" style="width: 98%;" class="mb-3" >
                     <div class="card-body text-center">
-                        <a href="views/camper/camper.php" class="btn btn-primary">CAMPERS</a>
+                        <a href="views/Rol/rol.php" class="btn btn-primary">ROL</a>
                     </div>
               
             </div>
 
             <div class="card mt-3 d-flex flex-column-reverse" style="width: 18rem;">
                 
-                    <img src="images/trainners1.png" style="width: 100%;" alt="..." >
+                    <img src="images/ruta.png" style="width: 100%;" alt="..." class="mb-4">
                     <div class="card-body text-center">
-                        <a href="#" class="btn btn-primary">TRAINNERS</a>
+                        <a href="views/ruta/ruta.php" class="btn btn-primary">RUTAS</a>
                     </div>
                
                 
@@ -52,32 +52,12 @@
 
             <div class="card mt-3 d-flex flex-column-reverse" style="width: 18rem;">
                 
-                    <img src="images/empleados1.png" style="width: 100%;" alt="..." class="mb-5">
+                    <img src="images/materias.png" style="width: 100%;" alt="..." >
                     <div class="card-body text-center">
-                        <a href="views/empleado/empleado.php" class="btn btn-primary">EMPLEADOS</a>
+                        <a href="" class="btn btn-primary">MATERIAS</a>
                     </div>
               
             </div>
-
-            <div class="card mt-3 d-flex flex-column-reverse" style="width: 18rem;">
-                
-                    <img src="images/programaAcademico.png" style="width: 100%;" class="mb-5" alt="...">
-                    <div class="card-body text-center">
-                        <a href="programa.php" class="btn btn-primary">PRROGRAMA ACADEMICO</a>
-                    </div>
-             
-            </div>
-
-
-            <div class="card mt-3 d-flex flex-column-reverse" style="width: 18rem;">
-                
-                    <img src="images/otros.png" style="width: 100%;" alt="..." class="mb-3">
-                    <div class="card-body text-center">
-                        <a href="otros.php" class="btn btn-primary">OTROS</a>
-                    </div>
-              
-            </div>
-
         </div>
 
     

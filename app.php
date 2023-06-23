@@ -27,7 +27,6 @@
     require_once('models/empleado.php');
     require_once('models/ruta.php');
     require_once('models/contactoEmpleado.php'); */
-    use App\Database;
     use Models\Personas;
     use Models\Campers;
     use Models\Matricula;

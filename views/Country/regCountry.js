@@ -15,6 +15,7 @@ document.querySelector('#btnPais').addEventListener('click', async (e) => {
             //me devuelve la respuesta del metodo
         });
     alert("El dato se envio correctamente");
+    location.reload();
 });
 
 //funcion para el metodo POST (enviar datos)
