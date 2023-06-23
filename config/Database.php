@@ -7,9 +7,9 @@
                     'driver' => 'mysql',
                     'host' => 'localhost',
                     //'host' => '172.16.48.230',
-                    'username' => 'root', 
-                    //'username' => 'campus',
-                    //'username' => 'apolo',
+                    //'username' => 'root', 
+                    'username' => 'campus',
+                    //'username' => 'apolo'
                     'database' => 'sistemacampus',
                     'password' => '',
                     //'password' => 'campus2023', 
@@ -29,6 +29,7 @@
                         \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci'
                     ]                
                 ),
+                
             "psql" => array(
                         'driver' => 'pgsql',
                         'host' => '172.16.48.210',

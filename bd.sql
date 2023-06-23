@@ -1,4 +1,5 @@
 -- Active: 1687028720666@@127.0.0.1@3306@sistemacampus
+
 CREATE TABLE 
     ruta_entrenamiento(
         id_ruta INT(11) NOT NULL  UNIQUE PRIMARY KEY  AUTO_INCREMENT,
@@ -43,6 +44,7 @@ CREATE TABLE
         CONSTRAINT fk_id_capitulo FOREIGN KEY(id_capitulo) REFERENCES capitulos(id_capitulo)
     );
 
+
 CREATE TABLE 
     modulos(
         id_modulo INT(11) NOT NULL AUTO_INCREMENT UNIQUE ,
@@ -51,6 +53,7 @@ CREATE TABLE
         CONSTRAINT pk_id_modulo PRIMARY KEY(id_modulo),
         CONSTRAINT fk_id_tema FOREIGN KEY(id_tema) REFERENCES temas(id_tema)
     );
+
 CREATE TABLE
     topico(
         id_topico INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
@@ -66,6 +69,7 @@ CREATE TABLE
         eps_nombre VARCHAR(80) NOT NULL,
         CONSTRAINT pk_id_eps PRIMARY KEY(id_eps)
     );
+
 
 CREATE TABLE 
    arls(
@@ -109,6 +113,7 @@ CREATE TABLE
         CONSTRAINT pk_id_rol PRIMARY KEY(id_rol)
     );
 
+
 CREATE TABLE 
     personas(
         id_persona VARCHAR(20) NOT NULL  UNIQUE,
@@ -150,6 +155,7 @@ CREATE TABLE
         FOREIGN KEY(id_trainer) REFERENCES trainer(id_trainer)
     );
 
+
 CREATE TABLE salones (
     id_salon INT NOT NULL AUTO_INCREMENT,
     nombre_salon VARCHAR(50) NOT NULL UNIQUE,
@@ -175,7 +181,6 @@ CREATE TABLE
         CONSTRAINT pk_id_camper PRIMARY KEY(id_camper),
         CONSTRAINT fk_id_camper_persona FOREIGN KEY(id_persona) REFERENCES personas(id_persona),
         CONSTRAINT fk_id_camper_nivel FOREIGN KEY(id_nivel_camper) REFERENCES nivel_campers(id_nivel_camper)
-        
     );
 
 CREATE TABLE
@@ -220,6 +225,7 @@ CREATE TABLE
         CONSTRAINT fk_id_empleado_arl FOREIGN KEY(id_arl) REFERENCES arls(id_arl)
     );
 
+
 CREATE TABLE 
     contacto_empleado(
         id_contacto_empleado VARCHAR(20) NOT NULL UNIQUE,
@@ -246,6 +252,7 @@ INSERT INTO `paises`(`nombre_pais`) VALUES ('colombia');
 INSERT INTO `regiones`(`id_pais`,`nombre_region`) VALUES (1,'santander');
 
 INSERT INTO `ciudad`(`id_region`,`ciudad_nombre`) VALUES (1,'Bucaramanga');
+
 
 INSERT INTO `eps`(`eps_nombre`) VALUES ('SURA');
 
