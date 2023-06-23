@@ -1,0 +1,29 @@
+.contenido{
+    height: 33rem;
+    overflow-y: scroll;
+}
+
+.acudientes{
+    height: 26rem;
+    overflow-y: scroll;
+}
+
+.card-img-top{
+    
+    margin-top: 1rem;
+    height: 15rem;
+    object-fit:scale-down;
+}
+
+.contactos{
+    height: 28rem;
+    overflow-y: scroll;
+}
+
+.accordion-button{
+    height: 5rem;
+    font-size: 1.5rem;
+    border: 1px solid rgb(206, 207, 209);
+    background-color: whitesmoke;
+}
+
