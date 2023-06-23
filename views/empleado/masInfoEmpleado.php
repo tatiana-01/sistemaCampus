@@ -100,37 +100,48 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 ">
-                <h3>Informacion de Contactos</h3>
-                <hr>
-                <div class="contactos">
-                    <?php 
-                    foreach ($contactos as $contacto) {
-                        echo '
-                        <div class="card bg-secondary-subtle mb-4" id="infoAcudiente">
-                            <div id="infoContacto" class="mx-2">
-                                <p class="fw-bold m-0 mt-2">Tipo ID:</p>
-                                <p>'; echo $contacto['tipo_id']; echo '</p>
-                                <p class="fw-bold m-0">ID:</p>
-                                <p>'; echo $contacto['id_contacto_empleado']; echo '</p>
-                                <p class="fw-bold m-0">Nombre:</p>
-                                <p>'; echo $contacto['nombre_contacto_empleado']; echo '</p>
-                                <p class="fw-bold m-0">Tipo Contacto:</p>
-                                <p>'; echo $contacto['tipo_locacion_contacto']; echo '</p>
-                                <p class="fw-bold m-0">Telefono:</p>
-                                <p>'; echo $contacto['telefono_contacto_empleado']; echo '</p>
-                            </div>
-                            <div class="d-flex mx-2 mt-1 mb-3">
-                                <button id="btnEditarContacto" class="btn btn-warning mx-auto" data-bs-toggle="modal" data-bs-target="#editarContacto" data-idEmpleado="'; echo $empleado[0]['id_empleado']; echo '">Editar Contacto</button>
-                                <button id="btnEliminarContacto" class="btn btn-danger mx-auto" data-idcontacto="'; echo $contacto['id_contacto_empleado']; echo '" data-nombre="'; echo $contacto['nombre_contacto_empleado']; echo '" data-idpersona="'; echo $idPersona; echo '" data-bs-toggle="modal" data-bs-target="#eliminarContacto">Eliminar Contacto</button>
+            <div class="col-12 col-md-6 mt-5">
+            <div class="accordion mt-4" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Información Contactos
+                    </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body bg-secondary-subtle">
+                            <div class="contactos">
+                                <hr>
+                                <?php 
+                                foreach ($contactos as $contacto) {
+                                    echo '
+                                    <div class="mb-4" id="infoAcudiente">
+                                        <div id="infoContacto" class="mx-2">
+                                            <p class="fw-bold m-0 mt-2">Tipo ID:</p>
+                                            <p>'; echo $contacto['tipo_id']; echo '</p>
+                                            <p class="fw-bold m-0">ID:</p>
+                                            <p>'; echo $contacto['id_contacto_empleado']; echo '</p>
+                                            <p class="fw-bold m-0">Nombre:</p>
+                                            <p>'; echo $contacto['nombre_contacto_empleado']; echo '</p>
+                                            <p class="fw-bold m-0">Tipo Contacto:</p>
+                                            <p>'; echo $contacto['tipo_locacion_contacto']; echo '</p>
+                                            <p class="fw-bold m-0">Telefono:</p>
+                                            <p>'; echo $contacto['telefono_contacto_empleado']; echo '</p>
+                                        </div>
+                                        <div class="d-flex mx-2 mt-1 mb-3">
+                                            <button id="btnEditarContacto" class="btn btn-warning mx-auto" data-bs-toggle="modal" data-bs-target="#editarContacto" data-idEmpleado="'; echo $empleado[0]['id_empleado']; echo '">Editar Contacto</button>
+                                            <button id="btnEliminarContacto" class="btn btn-danger mx-auto" data-idcontacto="'; echo $contacto['id_contacto_empleado']; echo '" data-nombre="'; echo $contacto['nombre_contacto_empleado']; echo '" data-idpersona="'; echo $idPersona; echo '" data-bs-toggle="modal" data-bs-target="#eliminarContacto">Eliminar Contacto</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    ';
+                                }
+                                ?>
                             </div>
                         </div>
-                        ';
-                    }
-                    ?>
+                    </div>
                 </div>
-                
-                <div class="d-flex mx-auto mt-1">
+                <div class="d-flex mx-auto mt-4">
                     <a class="btn btn-success mx-auto" <?php echo "href='contactoEmpleado.php?idEmpleado={$empleado[0]['id_empleado']}'"?> >Añadir Contacto</a>
                 </div>
             </div>

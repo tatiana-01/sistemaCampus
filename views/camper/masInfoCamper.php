@@ -107,61 +107,81 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6">
-                <div class="row mx-1">
-                    <h3>Informacion Academica</h3>
-                    <hr>
-                    <div class="card bg-secondary-subtle mb-3" id="infoAcademica">
-                        <div id="infoCamper" class="my-3 mx-1">
-                            <p class="fw-bold m-0 ">Nivel de conocimiento:</p>
-                            <p id='<?php echo $nivel[0]['id_nivel_camper']?>'><?php echo $nivel[0]['nivel_conocimiento']?></p>
-                            <p class="fw-bold m-0">Salon:</p>
-                            <p id='<?php echo $salon[0]['id_salon']?>' ><?php echo $salon[0]['nombre_salon']?></p>
-                            <p class="fw-bold m-0">Ruta de entrenamiento:</p>
-                            <p id='<?php echo $ruta[0]['id_ruta']?>' ><?php echo $ruta[0]['nombre_ruta']?></p>
-                        </div>
-                        <div class="d-flex mx-auto mt-1 mb-3">
-                            <button class="btn btn-warning mx-auto" id='btnEditarAcademica' type="submit" data-bs-toggle="modal" data-bs-target="#editarInfoAcademica">Editar Información</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <h3>Informacion Acudiente</h3>
-                    <hr>
-                    <div class="acudientes">
-                        <?php 
-                        foreach ($camperAcudientes as $camperAcudiente) {
-                            $acudiente= $objAcudientes->loadDataById($camperAcudiente['id_acudiente']);
-                            echo '
-                            <div class="card bg-secondary-subtle mb-4" id="infoAcudiente">
-                                <div id="infoAcudiente" class="m-3">
-                                    <p class="fw-bold m-0 mt-2">Tipo ID:</p>
-                                    <p>'; echo $acudiente[0]['tipo_id']; echo '</p>
-                                    <p class="fw-bold m-0 mt-2">ID:</p>
-                                    <p>'; echo $acudiente[0]['id_acudiente']; echo '</p>
-                                    <p class="fw-bold m-0">Nombre:</p>
-                                    <p>'; echo $acudiente[0]['nombre_acudiente']; echo '</p>
-                                    <p class="fw-bold m-0">Parentesco:</p>
-                                    <p>'; echo $acudiente[0]['parentesco']; echo '</p>
-                                    <p class="fw-bold m-0">Telefono:</p>
-                                    <p>'; echo $acudiente[0]['telefono_acudiente']; echo '</p>
-                                </div>
-                                <div class="d-flex mx-2 mt-1 mb-3">
-                                    <button class="btn btn-warning mx-auto" id="btnEditarAcudiente" data-bs-toggle="modal" data-bs-target="#editarAcudiente" type="submit" >Editar Acudiente</button>
-                                    <button class="btn btn-danger mx-auto" data-bs-toggle="modal" id="btnEliminarAcudiente" data-bs-target="#eliminarAcudiente"type="submit" data-idacudiente="'; echo $acudiente[0]['id_acudiente']; echo'" data-nombreacudiente="'; echo $acudiente[0]['nombre_acudiente']; echo'">Eliminar Acudiente</button>
+            <div class="col-12 col-md-6 mt-5">
+                <div class="accordion mt-4" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Información Academica
+                        </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body bg-secondary-subtle">
+                                <hr>
+                                <div class="mb-3" id="infoAcademica">
+                                    <div id="infoCamper" class="my-3 mx-1">
+                                        <p class="fw-bold m-0 ">Nivel de conocimiento:</p>
+                                        <p id='<?php echo $nivel[0]['id_nivel_camper']?>'><?php echo $nivel[0]['nivel_conocimiento']?></p>
+                                        <p class="fw-bold m-0">Salon:</p>
+                                        <p id='<?php echo $salon[0]['id_salon']?>' ><?php echo $salon[0]['nombre_salon']?></p>
+                                        <p class="fw-bold m-0">Ruta de entrenamiento:</p>
+                                        <p id='<?php echo $ruta[0]['id_ruta']?>' ><?php echo $ruta[0]['nombre_ruta']?></p>
+                                    </div>
+                                    <div class="d-flex mx-auto mt-1 mb-3">
+                                        <button class="btn btn-warning mx-auto" id='btnEditarAcademica' type="submit" data-bs-toggle="modal" data-bs-target="#editarInfoAcademica">Editar Información</button>
+                                    </div>
                                 </div>
                             </div>
-                            ';
-                        }
-                        ?>
+                        </div>
                     </div>
-                    <div class="d-flex mx-auto mt-1">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Información Acudientes
+                        </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body bg-secondary-subtle">
+                            <hr>
+                            <div class="acudientes">
+                                <?php 
+                                foreach ($camperAcudientes as $camperAcudiente) {
+                                    $acudiente= $objAcudientes->loadDataById($camperAcudiente['id_acudiente']);
+                                    echo '
+                                    <div class=" mb-4" id="infoAcudiente">
+                                        <div id="infoAcudiente" class="m-3">
+                                            <p class="fw-bold m-0 mt-2">Tipo ID:</p>
+                                            <p>'; echo $acudiente[0]['tipo_id']; echo '</p>
+                                            <p class="fw-bold m-0 mt-2">ID:</p>
+                                            <p>'; echo $acudiente[0]['id_acudiente']; echo '</p>
+                                            <p class="fw-bold m-0">Nombre:</p>
+                                            <p>'; echo $acudiente[0]['nombre_acudiente']; echo '</p>
+                                            <p class="fw-bold m-0">Parentesco:</p>
+                                            <p>'; echo $acudiente[0]['parentesco']; echo '</p>
+                                            <p class="fw-bold m-0">Telefono:</p>
+                                            <p>'; echo $acudiente[0]['telefono_acudiente']; echo '</p>
+                                        </div>
+                                        <div class="d-flex mx-2 mt-1 mb-3">
+                                            <button class="btn btn-warning mx-auto" id="btnEditarAcudiente" data-bs-toggle="modal" data-bs-target="#editarAcudiente" type="submit" >Editar Acudiente</button>
+                                            <button class="btn btn-danger mx-auto" data-bs-toggle="modal" id="btnEliminarAcudiente" data-bs-target="#eliminarAcudiente"type="submit" data-idacudiente="'; echo $acudiente[0]['id_acudiente']; echo'" data-nombreacudiente="'; echo $acudiente[0]['nombre_acudiente']; echo'">Eliminar Acudiente</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    ';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="d-flex mx-auto mt-3">
                         <a class="btn btn-success mx-auto" <?php echo "href='../acudiente/acudiente.php?idCamper={$camper[0]['id_camper']}'"?> >Añadir Acudiente</a>
                     </div>
                 </div>
             </div>
             
         </div>
+</div>
 
          <!--  MODALES -->
 

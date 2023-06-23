@@ -48,6 +48,7 @@ error_reporting(E_ALL);
     <div class="content mx-auto" style="width: 90%">
          <!-- TABLA CAMPERS -->
          <h3>Listado Empleados</h3>
+            <div class="table-responsive">
                 <table class="table table-bordered display dataTable" id="misEmpleados">
                     <thead class="table-dark mt-3">
                         <tr>
@@ -78,6 +79,7 @@ error_reporting(E_ALL);
                     <?php endforeach?>
                     </tbody>
                 </table>
+            </div>
         </div>    
        
     </main>

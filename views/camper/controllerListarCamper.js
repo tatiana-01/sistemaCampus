@@ -145,9 +145,3 @@ btnEliminarCamper.addEventListener('click',(e)=>{
     }
     
 })
-
-if(btnEliminarAcudiente.length!=0){
-    document.querySelector('.acudientes').classList.add('d-block');
-}else{
-    document.querySelector('.acudientes').classList.add('d-none');
-}

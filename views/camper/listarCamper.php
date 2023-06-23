@@ -45,6 +45,7 @@
     <div class="content mx-auto" style="width: 90%">
          <!-- TABLA CAMPERS -->
          <h3>Listado Campers</h3>
+         <div class="table-responsive">
                 <table class="table table-bordered display dataTable" id="misCampers">
                     <thead class="table-dark mt-3">
                         <tr>
@@ -75,6 +76,7 @@
                     <?php endforeach?>
                     </tbody>
                 </table>
+            </div>
         </div>    
     </main>
     <!-- MAIN -->
